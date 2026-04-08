@@ -1,0 +1,78 @@
+
+=== BTC [1day] ===
+  ✗ BTC 1day: fetch failed
+
+=== ETH [1day] ===
+  ✗ ETH 1day: fetch failed
+
+=== XRP [1day] ===
+  ✗ XRP 1day: fetch failed
+
+=== SOL [1day] ===
+  ✗ SOL 1day: fetch failed
+
+=== TRX [1day] ===
+  ✗ TRX 1day: fetch failed
+
+=== DOGE [1day] ===
+  ✗ DOGE 1day: fetch failed
+
+=== XMR [1day] ===
+  ✗ XMR 1day: fetch failed
+
+=== LTC [1day] ===
+  ✗ LTC 1day: fetch failed
+
+→ /sessions/friendly-awesome-bardeen/mnt/auto_coin/data/coin_lab/composite_result_1day.json
+
+=== BTC [4hour] ===
+  ✗ BTC 4hour: fetch failed
+
+=== ETH [4hour] ===
+  ✗ ETH 4hour: fetch failed
+
+=== XRP [4hour] ===
+  ✗ XRP 4hour: fetch failed
+
+=== SOL [4hour] ===
+  ✗ SOL 4hour: fetch failed
+
+=== TRX [4hour] ===
+  ✗ TRX 4hour: fetch failed
+
+=== DOGE [4hour] ===
+  ✗ DOGE 4hour: fetch failed
+
+=== XMR [4hour] ===
+  ✗ XMR 4hour: fetch failed
+
+=== LTC [4hour] ===
+  ✗ LTC 4hour: fetch failed
+
+→ /sessions/friendly-awesome-bardeen/mnt/auto_coin/data/coin_lab/composite_result_4hour.json
+
+=== BTC [60min] ===
+  ✗ BTC 60min: fetch failed
+
+=== ETH [60min] ===
+  ✗ ETH 60min: fetch failed
+
+=== XRP [60min] ===
+  ✗ XRP 60min: fetch failed
+
+=== SOL [60min] ===
+  ✗ SOL 60min: fetch failed
+
+=== TRX [60min] ===
+  ✗ TRX 60min: fetch failed
+
+=== DOGE [60min] ===
+  ✗ DOGE 60min: fetch failed
+
+=== XMR [60min] ===
+  ✗ XMR 60min: fetch failed
+
+=== LTC [60min] ===
+  ✗ LTC 60min: fetch failed
+
+→ /sessions/friendly-awesome-bardeen/mnt/auto_coin/data/coin_lab/composite_result_60min.json

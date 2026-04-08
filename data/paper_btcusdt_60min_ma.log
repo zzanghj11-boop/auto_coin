@@ -1,0 +1,23 @@
+
+▶ paper-trade start · btcusdt 60min MA Cross (20/60) · poll every 300s
+  state file: /Users/richard/Documents/Claude/Projects/auto_coin/data/paper_btcusdt_60min_ma.json
+  resumed: equity=1000000 lastTs=none
+[ERR] 2026-04-06T09:28:47.286Z Cannot find module 'axios'
+Require stack:
+- /Users/richard/Documents/Claude/Projects/auto_coin/src/fetchData.js
+- /Users/richard/Documents/Claude/Projects/auto_coin/src/paperTrade.js
+[ERR] 2026-04-06T09:33:47.292Z Cannot find module 'axios'
+Require stack:
+- /Users/richard/Documents/Claude/Projects/auto_coin/src/fetchData.js
+- /Users/richard/Documents/Claude/Projects/auto_coin/src/paperTrade.js
+
+▶ stopped. final state saved to /Users/richard/Documents/Claude/Projects/auto_coin/data/paper_btcusdt_60min_ma.json
+
+▶ paper-trade start · btcusdt 60min MA Cross (20/60) · poll every 300s
+  state file: /Users/richard/Documents/Claude/Projects/auto_coin/data/paper_btcusdt_60min_ma.json
+  resumed: equity=1000000 lastTs=none
+[ERR] 2026-04-06T13:09:28.419Z HTX API error: {"ts":1775480968304,"status":"error","err-code":"invalid-parameter","err-msg":"request limit"}
+[ERR] 2026-04-06T13:19:32.646Z HTX API error: {"ts":1775481572549,"status":"error","err-code":"invalid-parameter","err-msg":"request limit"}
+[ERR] 2026-04-06T13:34:28.397Z HTX API error: {"ts":1775482468290,"status":"error","err-code":"invalid-parameter","err-msg":"request limit"}
+
+▶ stopped. final state saved to /Users/richard/Documents/Claude/Projects/auto_coin/data/paper_btcusdt_60min_ma.json

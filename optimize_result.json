@@ -1,0 +1,360 @@
+{
+  "MA Cross": [
+    {
+      "params": {
+        "fast": 30,
+        "slow": 60
+      },
+      "train": {
+        "ret": 35.39,
+        "mdd": -6.08,
+        "trades": 5,
+        "score": "5.82"
+      },
+      "test": {
+        "ret": -2.08,
+        "mdd": -7.06,
+        "trades": 4
+      }
+    },
+    {
+      "params": {
+        "fast": 10,
+        "slow": 150
+      },
+      "train": {
+        "ret": 33.97,
+        "mdd": -9.08,
+        "trades": 6,
+        "score": "3.74"
+      },
+      "test": {
+        "ret": -3.37,
+        "mdd": -13.22,
+        "trades": 4
+      }
+    },
+    {
+      "params": {
+        "fast": 15,
+        "slow": 100
+      },
+      "train": {
+        "ret": 32.46,
+        "mdd": -9.1,
+        "trades": 8,
+        "score": "3.57"
+      },
+      "test": {
+        "ret": 1.29,
+        "mdd": -7.84,
+        "trades": 2
+      }
+    },
+    {
+      "params": {
+        "fast": 5,
+        "slow": 150
+      },
+      "train": {
+        "ret": 31.64,
+        "mdd": -10.66,
+        "trades": 9,
+        "score": "2.97"
+      },
+      "test": {
+        "ret": -7.1,
+        "mdd": -13.01,
+        "trades": 8
+      }
+    },
+    {
+      "params": {
+        "fast": 30,
+        "slow": 50
+      },
+      "train": {
+        "ret": 25.73,
+        "mdd": -8.88,
+        "trades": 7,
+        "score": "2.90"
+      },
+      "test": {
+        "ret": -2.34,
+        "mdd": -7.82,
+        "trades": 4
+      }
+    }
+  ],
+  "RSI 역추세": [
+    {
+      "params": {
+        "period": 7,
+        "lower": 30,
+        "upper": 80,
+        "trendPeriod": 200
+      },
+      "train": {
+        "ret": 24.3,
+        "mdd": -3.95,
+        "trades": 5,
+        "score": "6.15"
+      },
+      "test": {
+        "ret": -3.97,
+        "mdd": -4.18,
+        "trades": 1
+      }
+    },
+    {
+      "params": {
+        "period": 7,
+        "lower": 30,
+        "upper": 75,
+        "trendPeriod": 200
+      },
+      "train": {
+        "ret": 13.92,
+        "mdd": -3.95,
+        "trades": 6,
+        "score": "3.52"
+      },
+      "test": {
+        "ret": -3.97,
+        "mdd": -4.18,
+        "trades": 1
+      }
+    },
+    {
+      "params": {
+        "period": 7,
+        "lower": 30,
+        "upper": 70,
+        "trendPeriod": 200
+      },
+      "train": {
+        "ret": 7.2,
+        "mdd": -3.95,
+        "trades": 6,
+        "score": "1.82"
+      },
+      "test": {
+        "ret": -3.97,
+        "mdd": -4.18,
+        "trades": 1
+      }
+    },
+    {
+      "params": {
+        "period": 7,
+        "lower": 30,
+        "upper": 80,
+        "trendPeriod": 100
+      },
+      "train": {
+        "ret": 15.07,
+        "mdd": -9.38,
+        "trades": 7,
+        "score": "1.61"
+      },
+      "test": {
+        "ret": -7.46,
+        "mdd": -7.46,
+        "trades": 2
+      }
+    },
+    {
+      "params": {
+        "period": 7,
+        "lower": 30,
+        "upper": 75,
+        "trendPeriod": 100
+      },
+      "train": {
+        "ret": 4.79,
+        "mdd": -9.38,
+        "trades": 7,
+        "score": "0.51"
+      },
+      "test": {
+        "ret": -7.46,
+        "mdd": -7.46,
+        "trades": 2
+      }
+    }
+  ],
+  "볼린저 스퀴즈": [
+    {
+      "params": {
+        "period": 30,
+        "mult": 1.5,
+        "window": 60
+      },
+      "train": {
+        "ret": 2.35,
+        "mdd": -5.02,
+        "trades": 6,
+        "score": "0.47"
+      },
+      "test": {
+        "ret": 0.16,
+        "mdd": -2.6,
+        "trades": 1
+      }
+    },
+    {
+      "params": {
+        "period": 14,
+        "mult": 1.5,
+        "window": 60
+      },
+      "train": {
+        "ret": 0.08,
+        "mdd": -1.71,
+        "trades": 1,
+        "score": "-Infinity"
+      },
+      "test": {
+        "ret": 0.16,
+        "mdd": -1.53,
+        "trades": 1
+      }
+    },
+    {
+      "params": {
+        "period": 14,
+        "mult": 1.5,
+        "window": 120
+      },
+      "train": {
+        "ret": 0,
+        "mdd": 0,
+        "trades": 0,
+        "score": "-Infinity"
+      },
+      "test": {
+        "ret": 0,
+        "mdd": 0,
+        "trades": 0
+      }
+    },
+    {
+      "params": {
+        "period": 14,
+        "mult": 1.5,
+        "window": 200
+      },
+      "train": {
+        "ret": 0,
+        "mdd": 0,
+        "trades": 0,
+        "score": "-Infinity"
+      },
+      "test": {
+        "ret": 0,
+        "mdd": 0,
+        "trades": 0
+      }
+    },
+    {
+      "params": {
+        "period": 14,
+        "mult": 2,
+        "window": 60
+      },
+      "train": {
+        "ret": 0.08,
+        "mdd": -1.71,
+        "trades": 1,
+        "score": "-Infinity"
+      },
+      "test": {
+        "ret": 0,
+        "mdd": 0,
+        "trades": 0
+      }
+    }
+  ],
+  "변동성 돌파": [
+    {
+      "params": {
+        "k": 0.4
+      },
+      "train": {
+        "ret": -1.1,
+        "mdd": -13.57,
+        "trades": 28,
+        "score": "-0.08"
+      },
+      "test": {
+        "ret": -4.3,
+        "mdd": -11.58,
+        "trades": 10
+      }
+    },
+    {
+      "params": {
+        "k": 0.5
+      },
+      "train": {
+        "ret": -1.18,
+        "mdd": -9.1,
+        "trades": 22,
+        "score": "-0.13"
+      },
+      "test": {
+        "ret": 0.38,
+        "mdd": -6.82,
+        "trades": 9
+      }
+    },
+    {
+      "params": {
+        "k": 0.3
+      },
+      "train": {
+        "ret": -3.47,
+        "mdd": -16.89,
+        "trades": 35,
+        "score": "-0.21"
+      },
+      "test": {
+        "ret": -0.9,
+        "mdd": -8.29,
+        "trades": 13
+      }
+    },
+    {
+      "params": {
+        "k": 0.8
+      },
+      "train": {
+        "ret": -1.51,
+        "mdd": -6.2,
+        "trades": 11,
+        "score": "-0.24"
+      },
+      "test": {
+        "ret": -2.14,
+        "mdd": -7.85,
+        "trades": 4
+      }
+    },
+    {
+      "params": {
+        "k": 0.7
+      },
+      "train": {
+        "ret": -4.17,
+        "mdd": -9.68,
+        "trades": 17,
+        "score": "-0.43"
+      },
+      "test": {
+        "ret": -2.14,
+        "mdd": -7.85,
+        "trades": 4
+      }
+    }
+  ]
+}

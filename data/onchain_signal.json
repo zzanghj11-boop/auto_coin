@@ -1,0 +1,10 @@
+{
+  "updated": "2026-04-06T08:54:55.776Z",
+  "bias": "neutral",
+  "signals": {
+    "stable_netflow_usd": -16619.7,
+    "coin_netflow_usd": 5968,
+    "combined_score": -22587.7
+  },
+  "notes": "seed: 2026-04-05 Binance hot wallet (10 tx sample via Blockscout MCP)"
+}

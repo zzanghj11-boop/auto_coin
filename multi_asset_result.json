@@ -1,0 +1,121 @@
+{
+  "matrix": [
+    {
+      "symbol": "BTCUSDT",
+      "B&H %": "8.2",
+      "MA %": "2.9",
+      "MA MDD": "-21.8",
+      "RSI %": "-7.9",
+      "RSI MDD": "-10.8",
+      "BB %": "0.0",
+      "BB MDD": "0.0",
+      "VB %": "10.3",
+      "VB MDD": "-7.1",
+      "ENS %": "16.4",
+      "ENS MDD": "-13.7"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "B&H %": "25.0",
+      "MA %": "-5.0",
+      "MA MDD": "-19.7",
+      "RSI %": "0.0",
+      "RSI MDD": "0.0",
+      "BB %": "0.0",
+      "BB MDD": "0.0",
+      "VB %": "-1.8",
+      "VB MDD": "-12.9",
+      "ENS %": "-7.4",
+      "ENS MDD": "-20.5"
+    },
+    {
+      "symbol": "SOLUSDT",
+      "B&H %": "33.0",
+      "MA %": "16.2",
+      "MA MDD": "-17.0",
+      "RSI %": "10.8",
+      "RSI MDD": "-2.1",
+      "BB %": "0.0",
+      "BB MDD": "0.0",
+      "VB %": "-10.7",
+      "VB MDD": "-15.2",
+      "ENS %": "17.2",
+      "ENS MDD": "-20.8"
+    },
+    {
+      "symbol": "XRPUSDT",
+      "B&H %": "87.4",
+      "MA %": "32.5",
+      "MA MDD": "-21.3",
+      "RSI %": "0.0",
+      "RSI MDD": "0.0",
+      "BB %": "0.2",
+      "BB MDD": "-1.6",
+      "VB %": "-4.1",
+      "VB MDD": "-14.1",
+      "ENS %": "36.0",
+      "ENS MDD": "-19.1"
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "B&H %": "18.7",
+      "MA %": "-5.5",
+      "MA MDD": "-16.5",
+      "RSI %": "-7.4",
+      "RSI MDD": "-7.4",
+      "BB %": "0.0",
+      "BB MDD": "0.0",
+      "VB %": "0.0",
+      "VB MDD": "-12.0",
+      "ENS %": "-1.1",
+      "ENS MDD": "-13.2"
+    }
+  ],
+  "corrTable": [
+    {
+      "symbol": "BTCUSDT",
+      "BTCUSDT": "1.00",
+      "ETHUSDT": "0.03",
+      "SOLUSDT": "0.03",
+      "XRPUSDT": "-0.00",
+      "DOGEUSDT": "-0.00"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "BTCUSDT": "0.03",
+      "ETHUSDT": "1.00",
+      "SOLUSDT": "0.04",
+      "XRPUSDT": "0.02",
+      "DOGEUSDT": "-0.01"
+    },
+    {
+      "symbol": "SOLUSDT",
+      "BTCUSDT": "0.03",
+      "ETHUSDT": "0.04",
+      "SOLUSDT": "1.00",
+      "XRPUSDT": "0.01",
+      "DOGEUSDT": "0.03"
+    },
+    {
+      "symbol": "XRPUSDT",
+      "BTCUSDT": "-0.00",
+      "ETHUSDT": "0.02",
+      "SOLUSDT": "0.01",
+      "XRPUSDT": "1.00",
+      "DOGEUSDT": "0.02"
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "BTCUSDT": "-0.00",
+      "ETHUSDT": "-0.01",
+      "SOLUSDT": "0.03",
+      "XRPUSDT": "0.02",
+      "DOGEUSDT": "1.00"
+    }
+  ],
+  "avgCorr": 0.016462580328996695,
+  "portfolio": {
+    "ret": 12.32903096680975,
+    "mdd": -6.795971675992707
+  }
+}

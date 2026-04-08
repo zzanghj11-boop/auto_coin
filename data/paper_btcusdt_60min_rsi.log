@@ -1,0 +1,9 @@
+
+▶ paper-trade start · btcusdt 60min RSI 역추세 · poll every 300s
+  state file: /Users/richard/Documents/Claude/Projects/auto_coin/data/paper_btcusdt_60min_rsi.json
+  resumed: equity=1000000 lastTs=none
+[ERR] 2026-04-06T13:24:28.424Z HTX API error: {"ts":1775481868321,"status":"error","err-code":"invalid-parameter","err-msg":"request limit"}
+[ERR] 2026-04-06T13:54:28.369Z HTX API error: {"ts":1775483668270,"status":"error","err-code":"invalid-parameter","err-msg":"request limit"}
+[ERR] 2026-04-06T14:24:28.401Z HTX API error: {"ts":1775485468282,"status":"error","err-code":"invalid-parameter","err-msg":"request limit"}
+
+▶ stopped. final state saved to /Users/richard/Documents/Claude/Projects/auto_coin/data/paper_btcusdt_60min_rsi.json

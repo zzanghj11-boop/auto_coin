@@ -1,0 +1,1333 @@
+{
+  "BTC": {
+    "coin": "BTC",
+    "symbol": "btcusdt",
+    "period": "4hour",
+    "candles": 2000,
+    "span": {
+      "from": 1746820800000,
+      "to": 1775606400000
+    },
+    "swings": {
+      "lows": 1,
+      "highs": 1
+    },
+    "strategyStats": {
+      "ma": {
+        "train": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 15,
+          "tp": 0,
+          "f1": 0
+        },
+        "test": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 4,
+          "tp": 0,
+          "f1": 0
+        }
+      },
+      "rsi": {
+        "train": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 0,
+          "tp": 0,
+          "f1": 0
+        },
+        "test": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 0,
+          "tp": 0,
+          "f1": 0
+        }
+      },
+      "rsif": {
+        "train": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 27,
+          "tp": 0,
+          "f1": 0
+        },
+        "test": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 7,
+          "tp": 0,
+          "f1": 0
+        }
+      },
+      "bb": {
+        "train": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 4,
+          "tp": 0,
+          "f1": 0
+        },
+        "test": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 0,
+          "tp": 0,
+          "f1": 0
+        }
+      },
+      "bbf": {
+        "train": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 3,
+          "tp": 0,
+          "f1": 0
+        },
+        "test": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 0,
+          "tp": 0,
+          "f1": 0
+        }
+      },
+      "donchian": {
+        "train": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 85,
+          "tp": 0,
+          "f1": 0
+        },
+        "test": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 16,
+          "tp": 0,
+          "f1": 0
+        }
+      },
+      "vbf": {
+        "train": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 163,
+          "tp": 0,
+          "f1": 0
+        },
+        "test": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 38,
+          "tp": 0,
+          "f1": 0
+        }
+      },
+      "zscore": {
+        "train": {
+          "precision": 0.018867924528301886,
+          "recall": 1,
+          "fires": 106,
+          "tp": 2,
+          "f1": 0.037037037037037035
+        },
+        "test": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 34,
+          "tp": 0,
+          "f1": 0
+        }
+      },
+      "momvol": {
+        "train": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 31,
+          "tp": 0,
+          "f1": 0
+        },
+        "test": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 6,
+          "tp": 0,
+          "f1": 0
+        }
+      }
+    },
+    "weights": {
+      "zscore": 1
+    },
+    "threshold": 0.5,
+    "backtest": {
+      "train": {
+        "totalReturn": -0.23874939233979653,
+        "cagr": -0.3115998217609848,
+        "sharpe": -1.0905996611793147,
+        "mdd": 0.3216902888403757,
+        "trades": 18,
+        "winRate": 0.3888888888888889
+      },
+      "test": {
+        "totalReturn": -0.1335769177816437,
+        "cagr": -0.54388765679287,
+        "sharpe": -1.680403371784117,
+        "mdd": 0.16713360119233928,
+        "trades": 5,
+        "winRate": 0.4
+      },
+      "full": {
+        "totalReturn": -0.4297799679511566,
+        "cagr": -0.45941187071863077,
+        "sharpe": -1.6838456759024258,
+        "mdd": 0.4620466203434679,
+        "trades": 23,
+        "winRate": 0.391304347826087
+      }
+    }
+  },
+  "ETH": {
+    "coin": "ETH",
+    "symbol": "ethusdt",
+    "period": "4hour",
+    "candles": 2000,
+    "span": {
+      "from": 1746820800000,
+      "to": 1775606400000
+    },
+    "swings": {
+      "lows": 6,
+      "highs": 7
+    },
+    "strategyStats": {
+      "ma": {
+        "train": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 12,
+          "tp": 0,
+          "f1": 0
+        },
+        "test": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 6,
+          "tp": 0,
+          "f1": 0
+        }
+      },
+      "rsi": {
+        "train": {
+          "precision": 0.5,
+          "recall": 0.2,
+          "fires": 2,
+          "tp": 1,
+          "f1": 0.28571428571428575
+        },
+        "test": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 0,
+          "tp": 0,
+          "f1": 0
+        }
+      },
+      "rsif": {
+        "train": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 28,
+          "tp": 0,
+          "f1": 0
+        },
+        "test": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 4,
+          "tp": 0,
+          "f1": 0
+        }
+      },
+      "bb": {
+        "train": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 2,
+          "tp": 0,
+          "f1": 0
+        },
+        "test": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 0,
+          "tp": 0,
+          "f1": 0
+        }
+      },
+      "bbf": {
+        "train": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 2,
+          "tp": 0,
+          "f1": 0
+        },
+        "test": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 1,
+          "tp": 0,
+          "f1": 0
+        }
+      },
+      "donchian": {
+        "train": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 98,
+          "tp": 0,
+          "f1": 0
+        },
+        "test": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 18,
+          "tp": 0,
+          "f1": 0
+        }
+      },
+      "vbf": {
+        "train": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 193,
+          "tp": 0,
+          "f1": 0
+        },
+        "test": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 41,
+          "tp": 0,
+          "f1": 0
+        }
+      },
+      "zscore": {
+        "train": {
+          "precision": 0.12121212121212122,
+          "recall": 0.8,
+          "fires": 99,
+          "tp": 12,
+          "f1": 0.2105263157894737
+        },
+        "test": {
+          "precision": 0.08333333333333333,
+          "recall": 1,
+          "fires": 24,
+          "tp": 2,
+          "f1": 0.15384615384615385
+        }
+      },
+      "momvol": {
+        "train": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 38,
+          "tp": 0,
+          "f1": 0
+        },
+        "test": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 2,
+          "tp": 0,
+          "f1": 0
+        }
+      }
+    },
+    "weights": {
+      "zscore": 1
+    },
+    "threshold": 0.5,
+    "backtest": {
+      "train": {
+        "totalReturn": -0.21149263714677713,
+        "cagr": -0.27764135543077106,
+        "sharpe": -0.32695383971013614,
+        "mdd": 0.436108566964558,
+        "trades": 27,
+        "winRate": 0.37037037037037035
+      },
+      "test": {
+        "totalReturn": -0.07136108276474207,
+        "cagr": -0.3332520819480712,
+        "sharpe": -0.5145728413560537,
+        "mdd": 0.20329271455970274,
+        "trades": 7,
+        "winRate": 0.42857142857142855
+      },
+      "full": {
+        "totalReturn": -0.3708322480586579,
+        "cagr": -0.3979268388690209,
+        "sharpe": -0.6609516000745506,
+        "mdd": 0.6031197670200734,
+        "trades": 34,
+        "winRate": 0.38235294117647056
+      }
+    }
+  },
+  "XRP": {
+    "coin": "XRP",
+    "symbol": "xrpusdt",
+    "period": "4hour",
+    "candles": 2000,
+    "span": {
+      "from": 1746820800000,
+      "to": 1775606400000
+    },
+    "swings": {
+      "lows": 5,
+      "highs": 5
+    },
+    "strategyStats": {
+      "ma": {
+        "train": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 15,
+          "tp": 0,
+          "f1": 0
+        },
+        "test": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 3,
+          "tp": 0,
+          "f1": 0
+        }
+      },
+      "rsi": {
+        "train": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 1,
+          "tp": 0,
+          "f1": 0
+        },
+        "test": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 0,
+          "tp": 0,
+          "f1": 0
+        }
+      },
+      "rsif": {
+        "train": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 20,
+          "tp": 0,
+          "f1": 0
+        },
+        "test": {
+          "precision": 0.125,
+          "recall": 0.5,
+          "fires": 8,
+          "tp": 1,
+          "f1": 0.2
+        }
+      },
+      "bb": {
+        "train": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 0,
+          "tp": 0,
+          "f1": 0
+        },
+        "test": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 0,
+          "tp": 0,
+          "f1": 0
+        }
+      },
+      "bbf": {
+        "train": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 4,
+          "tp": 0,
+          "f1": 0
+        },
+        "test": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 1,
+          "tp": 0,
+          "f1": 0
+        }
+      },
+      "donchian": {
+        "train": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 73,
+          "tp": 0,
+          "f1": 0
+        },
+        "test": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 16,
+          "tp": 0,
+          "f1": 0
+        }
+      },
+      "vbf": {
+        "train": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 137,
+          "tp": 0,
+          "f1": 0
+        },
+        "test": {
+          "precision": 0.03571428571428571,
+          "recall": 0.5,
+          "fires": 28,
+          "tp": 1,
+          "f1": 0.06666666666666667
+        }
+      },
+      "zscore": {
+        "train": {
+          "precision": 0.07563025210084033,
+          "recall": 1,
+          "fires": 119,
+          "tp": 9,
+          "f1": 0.140625
+        },
+        "test": {
+          "precision": 0.1724137931034483,
+          "recall": 0.5,
+          "fires": 29,
+          "tp": 5,
+          "f1": 0.25641025641025644
+        }
+      },
+      "momvol": {
+        "train": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 24,
+          "tp": 0,
+          "f1": 0
+        },
+        "test": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 7,
+          "tp": 0,
+          "f1": 0
+        }
+      }
+    },
+    "weights": {
+      "zscore": 1
+    },
+    "threshold": 0.5,
+    "backtest": {
+      "train": {
+        "totalReturn": -0.31623763691006646,
+        "cagr": -0.40567160293250115,
+        "sharpe": -0.678626428775441,
+        "mdd": 0.3445746379049406,
+        "trades": 28,
+        "winRate": 0.35714285714285715
+      },
+      "test": {
+        "totalReturn": -0.05072215170821315,
+        "cagr": -0.24798141687623376,
+        "sharpe": -0.10810106167109021,
+        "mdd": 0.18916620888056448,
+        "trades": 8,
+        "winRate": 0.5
+      },
+      "full": {
+        "totalReturn": -0.42437903843284364,
+        "cagr": -0.4538026638791415,
+        "sharpe": -0.7746791113088725,
+        "mdd": 0.5163226114611636,
+        "trades": 36,
+        "winRate": 0.3888888888888889
+      }
+    }
+  },
+  "SOL": {
+    "coin": "SOL",
+    "symbol": "solusdt",
+    "period": "4hour",
+    "candles": 2000,
+    "span": {
+      "from": 1746820800000,
+      "to": 1775606400000
+    },
+    "swings": {
+      "lows": 6,
+      "highs": 6
+    },
+    "strategyStats": {
+      "ma": {
+        "train": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 11,
+          "tp": 0,
+          "f1": 0
+        },
+        "test": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 5,
+          "tp": 0,
+          "f1": 0
+        }
+      },
+      "rsi": {
+        "train": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 1,
+          "tp": 0,
+          "f1": 0
+        },
+        "test": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 0,
+          "tp": 0,
+          "f1": 0
+        }
+      },
+      "rsif": {
+        "train": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 42,
+          "tp": 0,
+          "f1": 0
+        },
+        "test": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 6,
+          "tp": 0,
+          "f1": 0
+        }
+      },
+      "bb": {
+        "train": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 5,
+          "tp": 0,
+          "f1": 0
+        },
+        "test": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 0,
+          "tp": 0,
+          "f1": 0
+        }
+      },
+      "bbf": {
+        "train": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 4,
+          "tp": 0,
+          "f1": 0
+        },
+        "test": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 0,
+          "tp": 0,
+          "f1": 0
+        }
+      },
+      "donchian": {
+        "train": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 92,
+          "tp": 0,
+          "f1": 0
+        },
+        "test": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 15,
+          "tp": 0,
+          "f1": 0
+        }
+      },
+      "vbf": {
+        "train": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 188,
+          "tp": 0,
+          "f1": 0
+        },
+        "test": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 36,
+          "tp": 0,
+          "f1": 0
+        }
+      },
+      "zscore": {
+        "train": {
+          "precision": 0.05263157894736842,
+          "recall": 0.6,
+          "fires": 95,
+          "tp": 5,
+          "f1": 0.09677419354838708
+        },
+        "test": {
+          "precision": 0.14814814814814814,
+          "recall": 1,
+          "fires": 27,
+          "tp": 4,
+          "f1": 0.25806451612903225
+        }
+      },
+      "momvol": {
+        "train": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 22,
+          "tp": 0,
+          "f1": 0
+        },
+        "test": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 1,
+          "tp": 0,
+          "f1": 0
+        }
+      }
+    },
+    "weights": {
+      "zscore": 1
+    },
+    "threshold": 0.5,
+    "backtest": {
+      "train": {
+        "totalReturn": -0.3452649451405373,
+        "cagr": -0.4399332611193473,
+        "sharpe": -0.7032045261087246,
+        "mdd": 0.42707074081241714,
+        "trades": 31,
+        "winRate": 0.41935483870967744
+      },
+      "test": {
+        "totalReturn": -0.3123831736076075,
+        "cagr": -0.8713315517558352,
+        "sharpe": -2.7490224039124858,
+        "mdd": 0.36148525576779655,
+        "trades": 11,
+        "winRate": 0.36363636363636365
+      },
+      "full": {
+        "totalReturn": -0.5779975165967439,
+        "cagr": -0.6112056614067236,
+        "sharpe": -1.2629248039736178,
+        "mdd": 0.6569472075557959,
+        "trades": 41,
+        "winRate": 0.3902439024390244
+      }
+    }
+  },
+  "DOGE": {
+    "coin": "DOGE",
+    "symbol": "dogeusdt",
+    "period": "4hour",
+    "candles": 2000,
+    "span": {
+      "from": 1746820800000,
+      "to": 1775606400000
+    },
+    "swings": {
+      "lows": 7,
+      "highs": 8
+    },
+    "strategyStats": {
+      "ma": {
+        "train": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 12,
+          "tp": 0,
+          "f1": 0
+        },
+        "test": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 4,
+          "tp": 0,
+          "f1": 0
+        }
+      },
+      "rsi": {
+        "train": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 0,
+          "tp": 0,
+          "f1": 0
+        },
+        "test": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 0,
+          "tp": 0,
+          "f1": 0
+        }
+      },
+      "rsif": {
+        "train": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 21,
+          "tp": 0,
+          "f1": 0
+        },
+        "test": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 7,
+          "tp": 0,
+          "f1": 0
+        }
+      },
+      "bb": {
+        "train": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 3,
+          "tp": 0,
+          "f1": 0
+        },
+        "test": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 0,
+          "tp": 0,
+          "f1": 0
+        }
+      },
+      "bbf": {
+        "train": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 3,
+          "tp": 0,
+          "f1": 0
+        },
+        "test": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 1,
+          "tp": 0,
+          "f1": 0
+        }
+      },
+      "donchian": {
+        "train": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 80,
+          "tp": 0,
+          "f1": 0
+        },
+        "test": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 15,
+          "tp": 0,
+          "f1": 0
+        }
+      },
+      "vbf": {
+        "train": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 138,
+          "tp": 0,
+          "f1": 0
+        },
+        "test": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 28,
+          "tp": 0,
+          "f1": 0
+        }
+      },
+      "zscore": {
+        "train": {
+          "precision": 0.08695652173913043,
+          "recall": 0.6666666666666666,
+          "fires": 115,
+          "tp": 10,
+          "f1": 0.15384615384615383
+        },
+        "test": {
+          "precision": 0.19047619047619047,
+          "recall": 1,
+          "fires": 21,
+          "tp": 4,
+          "f1": 0.32
+        }
+      },
+      "momvol": {
+        "train": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 32,
+          "tp": 0,
+          "f1": 0
+        },
+        "test": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 8,
+          "tp": 0,
+          "f1": 0
+        }
+      }
+    },
+    "weights": {
+      "zscore": 1
+    },
+    "threshold": 0.5,
+    "backtest": {
+      "train": {
+        "totalReturn": -0.4121088205216136,
+        "cagr": -0.5166906550910193,
+        "sharpe": -0.7184596941283524,
+        "mdd": 0.5815740113992917,
+        "trades": 33,
+        "winRate": 0.3939393939393939
+      },
+      "test": {
+        "totalReturn": -0.06849748607668649,
+        "cagr": -0.32191744511802,
+        "sharpe": -0.5166085538448781,
+        "mdd": 0.20175229564539485,
+        "trades": 6,
+        "winRate": 0.3333333333333333
+      },
+      "full": {
+        "totalReturn": -0.45241450902104774,
+        "cagr": -0.4828638879625061,
+        "sharpe": -0.6846509699278582,
+        "mdd": 0.6402005531140454,
+        "trades": 39,
+        "winRate": 0.38461538461538464
+      }
+    }
+  },
+  "XMR": {
+    "coin": "XMR",
+    "symbol": "xmrusdt",
+    "period": "4hour",
+    "candles": 2000,
+    "span": {
+      "from": 1746820800000,
+      "to": 1775606400000
+    },
+    "swings": {
+      "lows": 9,
+      "highs": 10
+    },
+    "strategyStats": {
+      "ma": {
+        "train": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 13,
+          "tp": 0,
+          "f1": 0
+        },
+        "test": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 4,
+          "tp": 0,
+          "f1": 0
+        }
+      },
+      "rsi": {
+        "train": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 0,
+          "tp": 0,
+          "f1": 0
+        },
+        "test": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 0,
+          "tp": 0,
+          "f1": 0
+        }
+      },
+      "rsif": {
+        "train": {
+          "precision": 0.04,
+          "recall": 0.2857142857142857,
+          "fires": 50,
+          "tp": 2,
+          "f1": 0.07017543859649124
+        },
+        "test": {
+          "precision": 0.1111111111111111,
+          "recall": 0.5,
+          "fires": 9,
+          "tp": 1,
+          "f1": 0.1818181818181818
+        }
+      },
+      "bb": {
+        "train": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 3,
+          "tp": 0,
+          "f1": 0
+        },
+        "test": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 0,
+          "tp": 0,
+          "f1": 0
+        }
+      },
+      "bbf": {
+        "train": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 2,
+          "tp": 0,
+          "f1": 0
+        },
+        "test": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 0,
+          "tp": 0,
+          "f1": 0
+        }
+      },
+      "donchian": {
+        "train": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 85,
+          "tp": 0,
+          "f1": 0
+        },
+        "test": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 14,
+          "tp": 0,
+          "f1": 0
+        }
+      },
+      "vbf": {
+        "train": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 172,
+          "tp": 0,
+          "f1": 0
+        },
+        "test": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 34,
+          "tp": 0,
+          "f1": 0
+        }
+      },
+      "zscore": {
+        "train": {
+          "precision": 0.10666666666666667,
+          "recall": 0.7142857142857143,
+          "fires": 75,
+          "tp": 8,
+          "f1": 0.18561484918793505
+        },
+        "test": {
+          "precision": 0.3333333333333333,
+          "recall": 1,
+          "fires": 21,
+          "tp": 7,
+          "f1": 0.5
+        }
+      },
+      "momvol": {
+        "train": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 17,
+          "tp": 0,
+          "f1": 0
+        },
+        "test": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 1,
+          "tp": 0,
+          "f1": 0
+        }
+      }
+    },
+    "weights": {
+      "zscore": 0.7273,
+      "rsif": 0.2727
+    },
+    "threshold": 0.3636,
+    "backtest": {
+      "train": {
+        "totalReturn": 0.34721917893443366,
+        "cagr": 0.5037256713193738,
+        "sharpe": 0.9547360704991839,
+        "mdd": 0.38389887658340194,
+        "trades": 30,
+        "winRate": 0.3333333333333333
+      },
+      "test": {
+        "totalReturn": -0.09551535042103299,
+        "cagr": -0.4228395364429569,
+        "sharpe": -0.5432087007933479,
+        "mdd": 0.18651690589636646,
+        "trades": 9,
+        "winRate": 0.4444444444444444
+      },
+      "full": {
+        "totalReturn": 0.08989772364177018,
+        "cagr": 0.09884741623016402,
+        "sharpe": 0.46615735544009473,
+        "mdd": 0.42991461727306346,
+        "trades": 39,
+        "winRate": 0.3333333333333333
+      }
+    }
+  },
+  "LTC": {
+    "coin": "LTC",
+    "symbol": "ltcusdt",
+    "period": "4hour",
+    "candles": 2000,
+    "span": {
+      "from": 1746820800000,
+      "to": 1775606400000
+    },
+    "swings": {
+      "lows": 5,
+      "highs": 5
+    },
+    "strategyStats": {
+      "ma": {
+        "train": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 12,
+          "tp": 0,
+          "f1": 0
+        },
+        "test": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 7,
+          "tp": 0,
+          "f1": 0
+        }
+      },
+      "rsi": {
+        "train": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 0,
+          "tp": 0,
+          "f1": 0
+        },
+        "test": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 0,
+          "tp": 0,
+          "f1": 0
+        }
+      },
+      "rsif": {
+        "train": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 32,
+          "tp": 0,
+          "f1": 0
+        },
+        "test": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 8,
+          "tp": 0,
+          "f1": 0
+        }
+      },
+      "bb": {
+        "train": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 0,
+          "tp": 0,
+          "f1": 0
+        },
+        "test": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 0,
+          "tp": 0,
+          "f1": 0
+        }
+      },
+      "bbf": {
+        "train": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 3,
+          "tp": 0,
+          "f1": 0
+        },
+        "test": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 0,
+          "tp": 0,
+          "f1": 0
+        }
+      },
+      "donchian": {
+        "train": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 77,
+          "tp": 0,
+          "f1": 0
+        },
+        "test": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 21,
+          "tp": 0,
+          "f1": 0
+        }
+      },
+      "vbf": {
+        "train": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 167,
+          "tp": 0,
+          "f1": 0
+        },
+        "test": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 33,
+          "tp": 0,
+          "f1": 0
+        }
+      },
+      "zscore": {
+        "train": {
+          "precision": 0.03773584905660377,
+          "recall": 0.6,
+          "fires": 106,
+          "tp": 4,
+          "f1": 0.07100591715976332
+        },
+        "test": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 27,
+          "tp": 0,
+          "f1": 0
+        }
+      },
+      "momvol": {
+        "train": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 24,
+          "tp": 0,
+          "f1": 0
+        },
+        "test": {
+          "precision": 0,
+          "recall": 0,
+          "fires": 14,
+          "tp": 0,
+          "f1": 0
+        }
+      }
+    },
+    "weights": {
+      "zscore": 1
+    },
+    "threshold": 0.5,
+    "backtest": {
+      "train": {
+        "totalReturn": -0.27435752160944915,
+        "cagr": -0.3552903172395635,
+        "sharpe": -0.4402294255807137,
+        "mdd": 0.3707040756427959,
+        "trades": 23,
+        "winRate": 0.34782608695652173
+      },
+      "test": {
+        "totalReturn": 0.005236587604083409,
+        "cagr": 0.02900828760577534,
+        "sharpe": 0.3192087262214112,
+        "mdd": 0.1342840257870849,
+        "trades": 7,
+        "winRate": 0.42857142857142855
+      },
+      "full": {
+        "totalReturn": -0.2705576312021126,
+        "cagr": -0.2920947571565503,
+        "sharpe": -0.30687548757851063,
+        "mdd": 0.4316541932017225,
+        "trades": 30,
+        "winRate": 0.36666666666666664
+      }
+    }
+  }
+}

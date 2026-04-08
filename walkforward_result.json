@@ -1,0 +1,550 @@
+{
+  "summary": [
+    {
+      "strategy": "MA Cross",
+      "windows": 10,
+      "OOS ret%": 12.26,
+      "OOS MDD%": -3.19,
+      "win win%": 30,
+      "param stab%": 60,
+      "unique": 3
+    },
+    {
+      "strategy": "RSI",
+      "windows": 5,
+      "OOS ret%": 0,
+      "OOS MDD%": 0,
+      "win win%": 0,
+      "param stab%": 60,
+      "unique": 2
+    },
+    {
+      "strategy": "BB Squeeze",
+      "windows": 0,
+      "OOS ret%": 0,
+      "OOS MDD%": 0,
+      "win win%": null,
+      "param stab%": 0,
+      "unique": 0
+    },
+    {
+      "strategy": "Volatility Breakout",
+      "windows": 10,
+      "OOS ret%": -2.34,
+      "OOS MDD%": -15.48,
+      "win win%": 40,
+      "param stab%": 40,
+      "unique": 3
+    }
+  ],
+  "details": {
+    "MA Cross": {
+      "wf": {
+        "windows": [
+          {
+            "trainRange": [
+              0,
+              500
+            ],
+            "testRange": [
+              500,
+              650
+            ],
+            "params": {
+              "fast": 30,
+              "slow": 50
+            },
+            "trainCalmar": "0.60",
+            "testRet": -0.36,
+            "testMdd": -2.76,
+            "testTrades": 2
+          },
+          {
+            "trainRange": [
+              150,
+              650
+            ],
+            "testRange": [
+              650,
+              800
+            ],
+            "params": {
+              "fast": 20,
+              "slow": 50
+            },
+            "trainCalmar": "0.86",
+            "testRet": 0,
+            "testMdd": 0,
+            "testTrades": 0
+          },
+          {
+            "trainRange": [
+              300,
+              800
+            ],
+            "testRange": [
+              800,
+              950
+            ],
+            "params": {
+              "fast": 20,
+              "slow": 50
+            },
+            "trainCalmar": "0.87",
+            "testRet": 0,
+            "testMdd": 0,
+            "testTrades": 0
+          },
+          {
+            "trainRange": [
+              450,
+              950
+            ],
+            "testRange": [
+              950,
+              1100
+            ],
+            "params": {
+              "fast": 10,
+              "slow": 50
+            },
+            "trainCalmar": "3.67",
+            "testRet": 2.21,
+            "testMdd": -2.11,
+            "testTrades": 2
+          },
+          {
+            "trainRange": [
+              600,
+              1100
+            ],
+            "testRange": [
+              1100,
+              1250
+            ],
+            "params": {
+              "fast": 20,
+              "slow": 50
+            },
+            "trainCalmar": "4.77",
+            "testRet": 7.4,
+            "testMdd": -1.08,
+            "testTrades": 1
+          },
+          {
+            "trainRange": [
+              750,
+              1250
+            ],
+            "testRange": [
+              1250,
+              1400
+            ],
+            "params": {
+              "fast": 20,
+              "slow": 50
+            },
+            "trainCalmar": "6.52",
+            "testRet": 0,
+            "testMdd": 0,
+            "testTrades": 0
+          },
+          {
+            "trainRange": [
+              900,
+              1400
+            ],
+            "testRange": [
+              1400,
+              1550
+            ],
+            "params": {
+              "fast": 20,
+              "slow": 50
+            },
+            "trainCalmar": "1.17",
+            "testRet": 0,
+            "testMdd": 0,
+            "testTrades": 0
+          },
+          {
+            "trainRange": [
+              1050,
+              1550
+            ],
+            "testRange": [
+              1550,
+              1700
+            ],
+            "params": {
+              "fast": 20,
+              "slow": 50
+            },
+            "trainCalmar": "1.84",
+            "testRet": 6.02,
+            "testMdd": -1.58,
+            "testTrades": 1
+          },
+          {
+            "trainRange": [
+              1200,
+              1700
+            ],
+            "testRange": [
+              1700,
+              1850
+            ],
+            "params": {
+              "fast": 10,
+              "slow": 50
+            },
+            "trainCalmar": "0.80",
+            "testRet": -3.19,
+            "testMdd": -3.19,
+            "testTrades": 2
+          },
+          {
+            "trainRange": [
+              1350,
+              1850
+            ],
+            "testRange": [
+              1850,
+              2000
+            ],
+            "params": {
+              "fast": 10,
+              "slow": 50
+            },
+            "trainCalmar": "0.24",
+            "testRet": 0,
+            "testMdd": 0,
+            "testTrades": 0
+          }
+        ],
+        "oosEquity": 1122637.1470387832,
+        "oosTotalRet": 12.26,
+        "oosMdd": -3.19,
+        "winRateOfWindows": 30
+      },
+      "stab": {
+        "uniqueCombos": 3,
+        "mostFrequent": "{\"fast\":20,\"slow\":50}",
+        "mostFrequentShare": 60
+      }
+    },
+    "RSI": {
+      "wf": {
+        "windows": [
+          {
+            "trainRange": [
+              150,
+              650
+            ],
+            "testRange": [
+              650,
+              800
+            ],
+            "params": {
+              "period": 7,
+              "lower": 30,
+              "upper": 70,
+              "trendPeriod": 200
+            },
+            "trainCalmar": "0.18",
+            "testRet": 0,
+            "testMdd": 0,
+            "testTrades": 0
+          },
+          {
+            "trainRange": [
+              300,
+              800
+            ],
+            "testRange": [
+              800,
+              950
+            ],
+            "params": {
+              "period": 7,
+              "lower": 30,
+              "upper": 75,
+              "trendPeriod": 200
+            },
+            "trainCalmar": "3.12",
+            "testRet": 0,
+            "testMdd": 0,
+            "testTrades": 0
+          },
+          {
+            "trainRange": [
+              900,
+              1400
+            ],
+            "testRange": [
+              1400,
+              1550
+            ],
+            "params": {
+              "period": 7,
+              "lower": 30,
+              "upper": 75,
+              "trendPeriod": 200
+            },
+            "trainCalmar": "-0.78",
+            "testRet": 0,
+            "testMdd": 0,
+            "testTrades": 0
+          },
+          {
+            "trainRange": [
+              1050,
+              1550
+            ],
+            "testRange": [
+              1550,
+              1700
+            ],
+            "params": {
+              "period": 7,
+              "lower": 30,
+              "upper": 75,
+              "trendPeriod": 200
+            },
+            "trainCalmar": "-0.30",
+            "testRet": 0,
+            "testMdd": 0,
+            "testTrades": 0
+          },
+          {
+            "trainRange": [
+              1350,
+              1850
+            ],
+            "testRange": [
+              1850,
+              2000
+            ],
+            "params": {
+              "period": 7,
+              "lower": 30,
+              "upper": 70,
+              "trendPeriod": 200
+            },
+            "trainCalmar": "-0.68",
+            "testRet": 0,
+            "testMdd": 0,
+            "testTrades": 0
+          }
+        ],
+        "oosEquity": 1000000,
+        "oosTotalRet": 0,
+        "oosMdd": 0,
+        "winRateOfWindows": 0
+      },
+      "stab": {
+        "uniqueCombos": 2,
+        "mostFrequent": "{\"period\":7,\"lower\":30,\"upper\":75,\"trendPeriod\":200}",
+        "mostFrequentShare": 60
+      }
+    },
+    "BB Squeeze": {
+      "wf": {
+        "windows": [],
+        "oosEquity": 1000000,
+        "oosTotalRet": 0,
+        "oosMdd": 0,
+        "winRateOfWindows": null
+      },
+      "stab": {
+        "uniqueCombos": 0,
+        "mostFrequentShare": 0
+      }
+    },
+    "Volatility Breakout": {
+      "wf": {
+        "windows": [
+          {
+            "trainRange": [
+              0,
+              500
+            ],
+            "testRange": [
+              500,
+              650
+            ],
+            "params": {
+              "k": 0.5
+            },
+            "trainCalmar": "-0.41",
+            "testRet": -1.65,
+            "testMdd": -2.28,
+            "testTrades": 4
+          },
+          {
+            "trainRange": [
+              150,
+              650
+            ],
+            "testRange": [
+              650,
+              800
+            ],
+            "params": {
+              "k": 0.7
+            },
+            "trainCalmar": "-0.39",
+            "testRet": -2.43,
+            "testMdd": -4.09,
+            "testTrades": 2
+          },
+          {
+            "trainRange": [
+              300,
+              800
+            ],
+            "testRange": [
+              800,
+              950
+            ],
+            "params": {
+              "k": 0.5
+            },
+            "trainCalmar": "-0.50",
+            "testRet": 5.83,
+            "testMdd": -3.05,
+            "testTrades": 4
+          },
+          {
+            "trainRange": [
+              450,
+              950
+            ],
+            "testRange": [
+              950,
+              1100
+            ],
+            "params": {
+              "k": 0.5
+            },
+            "trainCalmar": "0.64",
+            "testRet": -1.31,
+            "testMdd": -3.19,
+            "testTrades": 4
+          },
+          {
+            "trainRange": [
+              600,
+              1100
+            ],
+            "testRange": [
+              1100,
+              1250
+            ],
+            "params": {
+              "k": 0.3
+            },
+            "trainCalmar": "0.87",
+            "testRet": 4.74,
+            "testMdd": -4.55,
+            "testTrades": 6
+          },
+          {
+            "trainRange": [
+              750,
+              1250
+            ],
+            "testRange": [
+              1250,
+              1400
+            ],
+            "params": {
+              "k": 0.3
+            },
+            "trainCalmar": "3.63",
+            "testRet": -7.03,
+            "testMdd": -10.17,
+            "testTrades": 4
+          },
+          {
+            "trainRange": [
+              900,
+              1400
+            ],
+            "testRange": [
+              1400,
+              1550
+            ],
+            "params": {
+              "k": 0.7
+            },
+            "trainCalmar": "0.51",
+            "testRet": -2.77,
+            "testMdd": -4.8,
+            "testTrades": 3
+          },
+          {
+            "trainRange": [
+              1050,
+              1550
+            ],
+            "testRange": [
+              1550,
+              1700
+            ],
+            "params": {
+              "k": 0.3
+            },
+            "trainCalmar": "0.29",
+            "testRet": 1.33,
+            "testMdd": -2.95,
+            "testTrades": 5
+          },
+          {
+            "trainRange": [
+              1200,
+              1700
+            ],
+            "testRange": [
+              1700,
+              1850
+            ],
+            "params": {
+              "k": 0.3
+            },
+            "trainCalmar": "0.23",
+            "testRet": -7.73,
+            "testMdd": -7.76,
+            "testTrades": 6
+          },
+          {
+            "trainRange": [
+              1350,
+              1850
+            ],
+            "testRange": [
+              1850,
+              2000
+            ],
+            "params": {
+              "k": 0.5
+            },
+            "trainCalmar": "1.01",
+            "testRet": 10.07,
+            "testMdd": -4.6,
+            "testTrades": 5
+          }
+        ],
+        "oosEquity": 976553.026615816,
+        "oosTotalRet": -2.34,
+        "oosMdd": -15.48,
+        "winRateOfWindows": 40
+      },
+      "stab": {
+        "uniqueCombos": 3,
+        "mostFrequent": "{\"k\":0.5}",
+        "mostFrequentShare": 40
+      }
+    }
+  }
+}

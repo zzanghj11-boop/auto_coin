@@ -1,0 +1,1312 @@
+{
+  "BTC": {
+    "source": "htx",
+    "candles": 2000,
+    "span": {
+      "from": 1602864000000,
+      "to": 1775577600000
+    },
+    "metrics": {
+      "annualVol": 0.5951567975965988,
+      "trendR2": 0.44884937365345307,
+      "hurst": 0.5787623715605339,
+      "buyHoldReturn": 5.337419124359941,
+      "buyHoldMdd": 0.7642164940441614
+    },
+    "ranked": [
+      {
+        "strategy": "momvol",
+        "label": "Momentum + Volume",
+        "params": {
+          "win": 10,
+          "volMult": 1.5,
+          "sl": 0.02,
+          "tp": 0.15
+        },
+        "metrics": {
+          "totalReturn": 2.049957225010008,
+          "cagr": 0.22569837155811134,
+          "sharpe": 1.0631990674453022,
+          "mdd": 0.3026202883785616,
+          "calmar": 0.7458137482037388,
+          "trades": 34,
+          "winRate": 0.35294117647058826,
+          "finalEq": 30499.572250100082
+        }
+      },
+      {
+        "strategy": "donchian",
+        "label": "Donchian Breakout",
+        "params": {
+          "entryWin": 55,
+          "exitWin": 20
+        },
+        "metrics": {
+          "totalReturn": 4.531200496233997,
+          "cagr": 0.366358115740135,
+          "sharpe": 1.0066017126675368,
+          "mdd": 0.32232539231103413,
+          "calmar": 1.1366095395506743,
+          "trades": 12,
+          "winRate": 0.6666666666666666,
+          "finalEq": 55312.004962339975
+        }
+      },
+      {
+        "strategy": "ma",
+        "label": "MA Cross",
+        "params": {
+          "fast": 30,
+          "slow": 150
+        },
+        "metrics": {
+          "totalReturn": 2.19095800725323,
+          "cagr": 0.23584953564758626,
+          "sharpe": 0.7896055912771389,
+          "mdd": 0.40490359826447825,
+          "calmar": 0.5824831803384768,
+          "trades": 5,
+          "winRate": 0.8,
+          "finalEq": 31909.580072532302
+        }
+      },
+      {
+        "strategy": "rsi",
+        "label": "RSI Reversal",
+        "params": {
+          "p": 14,
+          "lo": 35,
+          "hi": 75,
+          "tp": 150
+        },
+        "metrics": {
+          "totalReturn": 1.6719921260883988,
+          "cagr": 0.19645789351082787,
+          "sharpe": 0.705449657223875,
+          "mdd": 0.4871944220933963,
+          "calmar": 0.403243314376794,
+          "trades": 5,
+          "winRate": 1,
+          "finalEq": 26719.921260883988
+        }
+      },
+      {
+        "strategy": "bb",
+        "label": "Bollinger Squeeze",
+        "params": {
+          "p": 30,
+          "mult": 1.5,
+          "win": 60
+        },
+        "metrics": {
+          "totalReturn": 0.7120842607978819,
+          "cagr": 0.10310876935997082,
+          "sharpe": 0.5595074833497188,
+          "mdd": 0.3347044169846871,
+          "calmar": 0.30805918335009036,
+          "trades": 10,
+          "winRate": 0.2,
+          "finalEq": 17120.84260797882
+        }
+      },
+      {
+        "strategy": "zscore",
+        "label": "Z-Score Reversion",
+        "params": {
+          "p": 20,
+          "entryZ": 2.5,
+          "exitZ": 0.5
+        },
+        "metrics": {
+          "totalReturn": 0.5415587771777128,
+          "cagr": 0.0821880055708466,
+          "sharpe": 0.45804792442564657,
+          "mdd": 0.30446666028523817,
+          "calmar": 0.26994090418257666,
+          "trades": 21,
+          "winRate": 0.7142857142857143,
+          "finalEq": 15415.58777177713
+        }
+      }
+    ]
+  },
+  "ETH": {
+    "source": "htx",
+    "candles": 2000,
+    "span": {
+      "from": 1602864000000,
+      "to": 1775577600000
+    },
+    "metrics": {
+      "annualVol": 0.7642239756860649,
+      "trendR2": 0.17064297997448166,
+      "hurst": 0.5843837432424757,
+      "buyHoldReturn": 5.0838592100968345,
+      "buyHoldMdd": 0.795813765382679
+    },
+    "ranked": [
+      {
+        "strategy": "donchian",
+        "label": "Donchian Breakout",
+        "params": {
+          "entryWin": 20,
+          "exitWin": 5
+        },
+        "metrics": {
+          "totalReturn": 10.375492371937083,
+          "cagr": 0.5585278315990279,
+          "sharpe": 1.2270943477945402,
+          "mdd": 0.37118109611107086,
+          "calmar": 1.504731349335463,
+          "trades": 33,
+          "winRate": 0.5151515151515151,
+          "finalEq": 113754.92371937082
+        }
+      },
+      {
+        "strategy": "bb",
+        "label": "Bollinger Squeeze",
+        "params": {
+          "p": 10,
+          "mult": 1.5,
+          "win": 60
+        },
+        "metrics": {
+          "totalReturn": 1.1379394168942234,
+          "cagr": 0.14874638966364429,
+          "sharpe": 1.2029968044060242,
+          "mdd": 0.11740574827520286,
+          "calmar": 1.2669429891539719,
+          "trades": 5,
+          "winRate": 0.4,
+          "finalEq": 21379.39416894223
+        }
+      },
+      {
+        "strategy": "momvol",
+        "label": "Momentum + Volume",
+        "params": {
+          "win": 40,
+          "volMult": 3,
+          "sl": 0.04,
+          "tp": 0.1
+        },
+        "metrics": {
+          "totalReturn": 0.8314195543751965,
+          "cagr": 0.11675725376403512,
+          "sharpe": 1.170212744418938,
+          "mdd": 0.07501991883612767,
+          "calmar": 1.556350041101455,
+          "trades": 6,
+          "winRate": 0.8333333333333334,
+          "finalEq": 18314.195543751965
+        }
+      },
+      {
+        "strategy": "ma",
+        "label": "MA Cross",
+        "params": {
+          "fast": 30,
+          "slow": 50
+        },
+        "metrics": {
+          "totalReturn": 1.5998783155260385,
+          "cagr": 0.19049870266381874,
+          "sharpe": 0.6280192048255239,
+          "mdd": 0.5598376323804819,
+          "calmar": 0.34027491480663863,
+          "trades": 10,
+          "winRate": 0.5,
+          "finalEq": 25998.783155260386
+        }
+      },
+      {
+        "strategy": "rsi",
+        "label": "RSI Reversal",
+        "params": {
+          "p": 9,
+          "lo": 30,
+          "hi": 65,
+          "tp": 100
+        },
+        "metrics": {
+          "totalReturn": 0.5471976281756745,
+          "cagr": 0.08290935837814639,
+          "sharpe": 0.4052120864131648,
+          "mdd": 0.48100705296972746,
+          "calmar": 0.17236620100737765,
+          "trades": 9,
+          "winRate": 0.5555555555555556,
+          "finalEq": 15471.976281756744
+        }
+      },
+      {
+        "strategy": "zscore",
+        "label": "Z-Score Reversion",
+        "params": {
+          "p": 20,
+          "entryZ": 2,
+          "exitZ": 0
+        },
+        "metrics": {
+          "totalReturn": 0.37704628711221755,
+          "cagr": 0.06012751932641058,
+          "sharpe": 0.34746114341308076,
+          "mdd": 0.48643860081651014,
+          "calmar": 0.12360762329610295,
+          "trades": 34,
+          "winRate": 0.7058823529411765,
+          "finalEq": 13770.462871122176
+        }
+      }
+    ]
+  },
+  "XRP": {
+    "source": "htx",
+    "candles": 2000,
+    "span": {
+      "from": 1602864000000,
+      "to": 1775577600000
+    },
+    "metrics": {
+      "annualVol": 1.000409667735989,
+      "trendR2": 0.3567453565182692,
+      "hurst": 0.5866234293214453,
+      "buyHoldReturn": 4.652555712037114,
+      "buyHoldMdd": 0.8286318481912979
+    },
+    "ranked": [
+      {
+        "strategy": "momvol",
+        "label": "Momentum + Volume",
+        "params": {
+          "win": 20,
+          "volMult": 1.5,
+          "sl": 0.04,
+          "tp": 0.1
+        },
+        "metrics": {
+          "totalReturn": 16.95270172283435,
+          "cagr": 0.6938645979752476,
+          "sharpe": 1.4794706321205706,
+          "mdd": 0.16598377769347708,
+          "calmar": 4.180315736978888,
+          "trades": 25,
+          "winRate": 0.72,
+          "finalEq": 179527.01722834352
+        }
+      },
+      {
+        "strategy": "donchian",
+        "label": "Donchian Breakout",
+        "params": {
+          "entryWin": 20,
+          "exitWin": 5
+        },
+        "metrics": {
+          "totalReturn": 13.74464513558834,
+          "cagr": 0.6340892172652393,
+          "sharpe": 1.0503824079797979,
+          "mdd": 0.6169409265088521,
+          "calmar": 1.027795677056839,
+          "trades": 29,
+          "winRate": 0.4482758620689655,
+          "finalEq": 147446.45135588342
+        }
+      },
+      {
+        "strategy": "bb",
+        "label": "Bollinger Squeeze",
+        "params": {
+          "p": 10,
+          "mult": 1.5,
+          "win": 60
+        },
+        "metrics": {
+          "totalReturn": 1.570404244252686,
+          "cagr": 0.18802412782817868,
+          "sharpe": 0.8300260256992895,
+          "mdd": 0.2102717641639797,
+          "calmar": 0.8941957974041095,
+          "trades": 5,
+          "winRate": 0.6,
+          "finalEq": 25704.04244252686
+        }
+      },
+      {
+        "strategy": "zscore",
+        "label": "Z-Score Reversion",
+        "params": {
+          "p": 20,
+          "entryZ": 2.5,
+          "exitZ": 0.5
+        },
+        "metrics": {
+          "totalReturn": 2.471041315961598,
+          "cagr": 0.2549716363359269,
+          "sharpe": 0.7208818507459765,
+          "mdd": 0.49573033707865166,
+          "calmar": 0.514335349816353,
+          "trades": 30,
+          "winRate": 0.7666666666666667,
+          "finalEq": 34710.41315961598
+        }
+      },
+      {
+        "strategy": "ma",
+        "label": "MA Cross",
+        "params": {
+          "fast": 30,
+          "slow": 50
+        },
+        "metrics": {
+          "totalReturn": 1.9055110327429055,
+          "cagr": 0.21489322876769257,
+          "sharpe": 0.6107406329905245,
+          "mdd": 0.783892536963455,
+          "calmar": 0.27413608196873407,
+          "trades": 15,
+          "winRate": 0.3333333333333333,
+          "finalEq": 29055.110327429054
+        }
+      },
+      {
+        "strategy": "rsi",
+        "label": "RSI Reversal",
+        "params": {
+          "p": 9,
+          "lo": 35,
+          "hi": 70,
+          "tp": 100
+        },
+        "metrics": {
+          "totalReturn": 0.2732065545492661,
+          "cagr": 0.04506678035602141,
+          "sharpe": 0.2961431709836392,
+          "mdd": 0.46878369446607565,
+          "calmar": 0.09613555438900348,
+          "trades": 9,
+          "winRate": 0.5555555555555556,
+          "finalEq": 12732.065545492662
+        }
+      }
+    ]
+  },
+  "SOL": {
+    "source": "htx",
+    "candles": 1953,
+    "span": {
+      "from": 1606924800000,
+      "to": 1775577600000
+    },
+    "metrics": {
+      "annualVol": 1.1110897093960554,
+      "trendR2": 0.340101778852372,
+      "hurst": 0.5951204504273718,
+      "buyHoldReturn": 39.13206831119545,
+      "buyHoldMdd": 0.9629258184570245
+    },
+    "ranked": [
+      {
+        "strategy": "donchian",
+        "label": "Donchian Breakout",
+        "params": {
+          "entryWin": 20,
+          "exitWin": 5
+        },
+        "metrics": {
+          "totalReturn": 121.8387264060334,
+          "cagr": 1.4574233045873073,
+          "sharpe": 1.517599039324107,
+          "mdd": 0.5758182137635887,
+          "calmar": 2.5310475941035024,
+          "trades": 30,
+          "winRate": 0.5,
+          "finalEq": 1228387.264060334
+        }
+      },
+      {
+        "strategy": "ma",
+        "label": "MA Cross",
+        "params": {
+          "fast": 10,
+          "slow": 150
+        },
+        "metrics": {
+          "totalReturn": 14.207205602035122,
+          "cagr": 0.6630891635555438,
+          "sharpe": 1.1150840956708892,
+          "mdd": 0.6470311758607133,
+          "calmar": 1.0248179505005601,
+          "trades": 12,
+          "winRate": 0.3333333333333333,
+          "finalEq": 152072.0560203512
+        }
+      },
+      {
+        "strategy": "momvol",
+        "label": "Momentum + Volume",
+        "params": {
+          "win": 10,
+          "volMult": 2,
+          "sl": 0.04,
+          "tp": 0.05
+        },
+        "metrics": {
+          "totalReturn": 1.8310915192398118,
+          "cagr": 0.21469306595817828,
+          "sharpe": 1.0443684161276428,
+          "mdd": 0.20471907037165754,
+          "calmar": 1.048720402883881,
+          "trades": 24,
+          "winRate": 0.7083333333333334,
+          "finalEq": 28310.91519239812
+        }
+      },
+      {
+        "strategy": "bb",
+        "label": "Bollinger Squeeze",
+        "params": {
+          "p": 30,
+          "mult": 1.5,
+          "win": 180
+        },
+        "metrics": {
+          "totalReturn": 1.812037895084731,
+          "cagr": 0.21316101793164233,
+          "sharpe": 0.8266260532132543,
+          "mdd": 0.3661242707419206,
+          "calmar": 0.5822094708435721,
+          "trades": 7,
+          "winRate": 0.2857142857142857,
+          "finalEq": 28120.37895084731
+        }
+      },
+      {
+        "strategy": "rsi",
+        "label": "RSI Reversal",
+        "params": {
+          "p": 9,
+          "lo": 25,
+          "hi": 75,
+          "tp": 200
+        },
+        "metrics": {
+          "totalReturn": 1.1267069410203954,
+          "cagr": 0.15145222967965788,
+          "sharpe": 0.5763451731567735,
+          "mdd": 0.4771311254703209,
+          "calmar": 0.31742265720008805,
+          "trades": 5,
+          "winRate": 0.8,
+          "finalEq": 21267.069410203952
+        }
+      },
+      {
+        "strategy": "zscore",
+        "label": "Z-Score Reversion",
+        "params": {
+          "p": 20,
+          "entryZ": 2.5,
+          "exitZ": 0
+        },
+        "metrics": {
+          "totalReturn": 0.6485256371474422,
+          "cagr": 0.09792694146725411,
+          "sharpe": 0.4320064955975992,
+          "mdd": 0.6543963502301693,
+          "calmar": 0.1496446938202062,
+          "trades": 18,
+          "winRate": 0.5555555555555556,
+          "finalEq": 16485.25637147442
+        }
+      }
+    ]
+  },
+  "TRX": {
+    "source": "htx",
+    "candles": 2000,
+    "span": {
+      "from": 1602864000000,
+      "to": 1775577600000
+    },
+    "metrics": {
+      "annualVol": 0.7054802173687919,
+      "trendR2": 0.7683352489394376,
+      "hurst": 0.5599546464046327,
+      "buyHoldReturn": 11.220322555633093,
+      "buyHoldMdd": 0.6892963392496974
+    },
+    "ranked": [
+      {
+        "strategy": "momvol",
+        "label": "Momentum + Volume",
+        "params": {
+          "win": 20,
+          "volMult": 1.5,
+          "sl": 0.04,
+          "tp": 0.15
+        },
+        "metrics": {
+          "totalReturn": 2.3557847606204705,
+          "cagr": 0.2472612296938621,
+          "sharpe": 0.9337025740691628,
+          "mdd": 0.3144994545861013,
+          "calmar": 0.786205591419138,
+          "trades": 24,
+          "winRate": 0.4583333333333333,
+          "finalEq": 33557.847606204705
+        }
+      },
+      {
+        "strategy": "ma",
+        "label": "MA Cross",
+        "params": {
+          "fast": 10,
+          "slow": 50
+        },
+        "metrics": {
+          "totalReturn": 5.067357836831846,
+          "cagr": 0.38962439211109157,
+          "sharpe": 0.8487571351902052,
+          "mdd": 0.605573934552443,
+          "calmar": 0.6433968998336237,
+          "trades": 23,
+          "winRate": 0.391304347826087,
+          "finalEq": 60673.57836831846
+        }
+      },
+      {
+        "strategy": "donchian",
+        "label": "Donchian Breakout",
+        "params": {
+          "entryWin": 20,
+          "exitWin": 10
+        },
+        "metrics": {
+          "totalReturn": 3.347659442250163,
+          "cagr": 0.30762023346497536,
+          "sharpe": 0.7669032159728655,
+          "mdd": 0.5234607018027047,
+          "calmar": 0.5876663375217787,
+          "trades": 26,
+          "winRate": 0.6153846153846154,
+          "finalEq": 43476.59442250163
+        }
+      },
+      {
+        "strategy": "rsi",
+        "label": "RSI Reversal",
+        "params": {
+          "p": 9,
+          "lo": 35,
+          "hi": 70,
+          "tp": 100
+        },
+        "metrics": {
+          "totalReturn": 0.9677490143265484,
+          "cagr": 0.13148674549891792,
+          "sharpe": 0.7414769494453456,
+          "mdd": 0.2234636711909244,
+          "calmar": 0.5884032281317771,
+          "trades": 8,
+          "winRate": 0.875,
+          "finalEq": 19677.490143265484
+        }
+      },
+      {
+        "strategy": "zscore",
+        "label": "Z-Score Reversion",
+        "params": {
+          "p": 10,
+          "entryZ": 2,
+          "exitZ": 0
+        },
+        "metrics": {
+          "totalReturn": 1.250655312082468,
+          "cagr": 0.1595684497382701,
+          "sharpe": 0.6418852392230323,
+          "mdd": 0.3283515898709477,
+          "calmar": 0.48596825677312977,
+          "trades": 49,
+          "winRate": 0.6938775510204082,
+          "finalEq": 22506.55312082468
+        }
+      },
+      {
+        "strategy": "bb",
+        "label": "Bollinger Squeeze",
+        "params": {
+          "p": 30,
+          "mult": 2,
+          "win": 120
+        },
+        "metrics": {
+          "totalReturn": 0.5705895461892028,
+          "cagr": 0.08587902222136767,
+          "sharpe": 0.5742396490288808,
+          "mdd": 0.18074529111707,
+          "calmar": 0.47513836565591755,
+          "trades": 6,
+          "winRate": 1,
+          "finalEq": 15705.895461892027
+        }
+      }
+    ]
+  },
+  "DOGE": {
+    "source": "htx",
+    "candles": 2000,
+    "span": {
+      "from": 1602864000000,
+      "to": 1775577600000
+    },
+    "metrics": {
+      "annualVol": 1.3562987202953647,
+      "trendR2": 0.15250809935372572,
+      "hurst": 0.5704632449907029,
+      "buyHoldReturn": 35.44319503683598,
+      "buyHoldMdd": 0.9191786552095575
+    },
+    "ranked": [
+      {
+        "strategy": "donchian",
+        "label": "Donchian Breakout",
+        "params": {
+          "entryWin": 55,
+          "exitWin": 20
+        },
+        "metrics": {
+          "totalReturn": 92.62103687999853,
+          "cagr": 1.2896845518594273,
+          "sharpe": 1.0252394742229163,
+          "mdd": 0.8253836790352541,
+          "calmar": 1.5625273247065765,
+          "trades": 11,
+          "winRate": 0.45454545454545453,
+          "finalEq": 936210.3687999853
+        }
+      },
+      {
+        "strategy": "momvol",
+        "label": "Momentum + Volume",
+        "params": {
+          "win": 20,
+          "volMult": 1.5,
+          "sl": 0.04,
+          "tp": 0.1
+        },
+        "metrics": {
+          "totalReturn": 30.749358546011766,
+          "cagr": 0.8796051632547874,
+          "sharpe": 0.827800001910723,
+          "mdd": 0.23623660868681187,
+          "calmar": 3.723407511411216,
+          "trades": 30,
+          "winRate": 0.5333333333333333,
+          "finalEq": 317493.58546011767
+        }
+      },
+      {
+        "strategy": "bb",
+        "label": "Bollinger Squeeze",
+        "params": {
+          "p": 20,
+          "mult": 1.5,
+          "win": 120
+        },
+        "metrics": {
+          "totalReturn": 1.0177179255053592,
+          "cagr": 0.13667689572594588,
+          "sharpe": 0.5896609614973872,
+          "mdd": 0.23707045235141283,
+          "calmar": 0.576524380707503,
+          "trades": 7,
+          "winRate": 0.5714285714285714,
+          "finalEq": 20177.17925505359
+        }
+      },
+      {
+        "strategy": "zscore",
+        "label": "Z-Score Reversion",
+        "params": {
+          "p": 10,
+          "entryZ": 2,
+          "exitZ": 0.5
+        },
+        "metrics": {
+          "totalReturn": 1.7526307363835478,
+          "cagr": 0.20296779752595717,
+          "sharpe": 0.5050612705675392,
+          "mdd": 0.5076934633725081,
+          "calmar": 0.3997841456883882,
+          "trades": 59,
+          "winRate": 0.6610169491525424,
+          "finalEq": 27526.307363835476
+        }
+      },
+      {
+        "strategy": "rsi",
+        "label": "RSI Reversal",
+        "params": {
+          "p": 9,
+          "lo": 35,
+          "hi": 70,
+          "tp": 150
+        },
+        "metrics": {
+          "totalReturn": 1.797801879603405,
+          "cagr": 0.2065465849974757,
+          "sharpe": 0.5016159072415582,
+          "mdd": 0.6826089329796649,
+          "calmar": 0.30258406390299725,
+          "trades": 10,
+          "winRate": 0.4,
+          "finalEq": 27978.018796034048
+        }
+      },
+      {
+        "strategy": "ma",
+        "label": "MA Cross",
+        "params": {
+          "fast": 20,
+          "slow": 50
+        },
+        "metrics": {
+          "totalReturn": 0.18398669767861553,
+          "cagr": 0.03130184618626819,
+          "sharpe": 0.346173105562898,
+          "mdd": 0.712335763542889,
+          "calmar": 0.043942544777738846,
+          "trades": 14,
+          "winRate": 0.2857142857142857,
+          "finalEq": 11839.866976786156
+        }
+      }
+    ]
+  },
+  "BCH": {
+    "source": "htx",
+    "candles": 2000,
+    "span": {
+      "from": 1602864000000,
+      "to": 1775577600000
+    },
+    "metrics": {
+      "annualVol": 0.8901783139450612,
+      "trendR2": 0.020457321159932682,
+      "hurst": 0.5606052164865257,
+      "buyHoldReturn": 0.8113454307667156,
+      "buyHoldMdd": 0.9354344053912271
+    },
+    "ranked": [
+      {
+        "strategy": "zscore",
+        "label": "Z-Score Reversion",
+        "params": {
+          "p": 30,
+          "entryZ": 2.5,
+          "exitZ": 0
+        },
+        "metrics": {
+          "totalReturn": 1.1927871152097804,
+          "cagr": 0.15406921391293693,
+          "sharpe": 0.5924362420901231,
+          "mdd": 0.6829603038788579,
+          "calmar": 0.22559029132133193,
+          "trades": 18,
+          "winRate": 0.8333333333333334,
+          "finalEq": 21927.871152097803
+        }
+      },
+      {
+        "strategy": "rsi",
+        "label": "RSI Reversal",
+        "params": {
+          "p": 9,
+          "lo": 35,
+          "hi": 75,
+          "tp": 100
+        },
+        "metrics": {
+          "totalReturn": 0.8665598772810374,
+          "cagr": 0.12063750082146618,
+          "sharpe": 0.47038934468525406,
+          "mdd": 0.5748115153018148,
+          "calmar": 0.20987314556167747,
+          "trades": 7,
+          "winRate": 0.5714285714285714,
+          "finalEq": 18665.598772810376
+        }
+      },
+      {
+        "strategy": "momvol",
+        "label": "Momentum + Volume",
+        "params": {
+          "win": 10,
+          "volMult": 3,
+          "sl": 0.02,
+          "tp": 0.15
+        },
+        "metrics": {
+          "totalReturn": 0.3728051697505552,
+          "cagr": 0.05953089612595086,
+          "sharpe": 0.44893025970887984,
+          "mdd": 0.11374118383740375,
+          "calmar": 0.5233891025000404,
+          "trades": 10,
+          "winRate": 0.3,
+          "finalEq": 13728.051697505553
+        }
+      },
+      {
+        "strategy": "bb",
+        "label": "Bollinger Squeeze",
+        "params": {
+          "p": 30,
+          "mult": 1.5,
+          "win": 120
+        },
+        "metrics": {
+          "totalReturn": 0.34992634207887585,
+          "cagr": 0.05628615679737248,
+          "sharpe": 0.36152213473057027,
+          "mdd": 0.18259810409372343,
+          "calmar": 0.30825159481657094,
+          "trades": 7,
+          "winRate": 0.5714285714285714,
+          "finalEq": 13499.263420788759
+        }
+      },
+      {
+        "strategy": "donchian",
+        "label": "Donchian Breakout",
+        "params": {
+          "entryWin": 20,
+          "exitWin": 10
+        },
+        "metrics": {
+          "totalReturn": 0.16185410071605677,
+          "cagr": 0.027756343759627544,
+          "sharpe": 0.346914991689455,
+          "mdd": 0.7473164105079885,
+          "calmar": 0.03714135454453645,
+          "trades": 27,
+          "winRate": 0.3333333333333333,
+          "finalEq": 11618.541007160567
+        }
+      },
+      {
+        "strategy": "ma",
+        "label": "MA Cross",
+        "params": {
+          "fast": 20,
+          "slow": 100
+        },
+        "metrics": {
+          "totalReturn": 0.15855930495536086,
+          "cagr": 0.027223826217253944,
+          "sharpe": 0.2944504133427828,
+          "mdd": 0.5555590287082849,
+          "calmar": 0.04900258084285178,
+          "trades": 10,
+          "winRate": 0.4,
+          "finalEq": 11585.593049553609
+        }
+      }
+    ]
+  },
+  "XMR": {
+    "source": "htx",
+    "candles": 1196,
+    "span": {
+      "from": 1672329600000,
+      "to": 1775577600000
+    },
+    "metrics": {
+      "annualVol": 0.5950605334766305,
+      "trendR2": 0.6882504173389657,
+      "hurst": 0.5724530450532742,
+      "buyHoldReturn": 1.395119563697385,
+      "buyHoldMdd": 0.5624046383887702
+    },
+    "ranked": [
+      {
+        "strategy": "zscore",
+        "label": "Z-Score Reversion",
+        "params": {
+          "p": 10,
+          "entryZ": 2,
+          "exitZ": 0.3
+        },
+        "metrics": {
+          "totalReturn": 1.5421246154274346,
+          "cagr": 0.3294119230457384,
+          "sharpe": 1.4217254781356414,
+          "mdd": 0.15337439600700908,
+          "calmar": 2.1477634574070925,
+          "trades": 37,
+          "winRate": 0.7297297297297297,
+          "finalEq": 25421.246154274348
+        }
+      },
+      {
+        "strategy": "momvol",
+        "label": "Momentum + Volume",
+        "params": {
+          "win": 10,
+          "volMult": 2,
+          "sl": 0.02,
+          "tp": 0.05
+        },
+        "metrics": {
+          "totalReturn": 0.3881980614594427,
+          "cagr": 0.10528401891369032,
+          "sharpe": 0.8518407021864985,
+          "mdd": 0.026667924639488392,
+          "calmar": 3.9479644680633137,
+          "trades": 6,
+          "winRate": 0.6666666666666666,
+          "finalEq": 13881.980614594428
+        }
+      },
+      {
+        "strategy": "rsi",
+        "label": "RSI Reversal",
+        "params": {
+          "p": 9,
+          "lo": 30,
+          "hi": 70,
+          "tp": 200
+        },
+        "metrics": {
+          "totalReturn": 0.8605793470399601,
+          "cagr": 0.20862702414605772,
+          "sharpe": 0.7995205443895347,
+          "mdd": 0.2952159710479959,
+          "calmar": 0.7066928777784158,
+          "trades": 6,
+          "winRate": 0.5,
+          "finalEq": 18605.7934703996
+        }
+      },
+      {
+        "strategy": "donchian",
+        "label": "Donchian Breakout",
+        "params": {
+          "entryWin": 40,
+          "exitWin": 20
+        },
+        "metrics": {
+          "totalReturn": 0.7641030865363825,
+          "cagr": 0.18914593323450868,
+          "sharpe": 0.6139049792290736,
+          "mdd": 0.392041972979721,
+          "calmar": 0.4824634765428358,
+          "trades": 6,
+          "winRate": 0.8333333333333334,
+          "finalEq": 17641.030865363824
+        }
+      },
+      {
+        "strategy": "ma",
+        "label": "MA Cross",
+        "params": {
+          "fast": 10,
+          "slow": 50
+        },
+        "metrics": {
+          "totalReturn": 0.3792964586935583,
+          "cagr": 0.1031162036710691,
+          "sharpe": 0.44586674693754674,
+          "mdd": 0.5085560366691677,
+          "calmar": 0.20276271686093378,
+          "trades": 16,
+          "winRate": 0.3125,
+          "finalEq": 13792.964586935583
+        }
+      },
+      {
+        "strategy": "bb",
+        "label": "Bollinger Squeeze",
+        "params": {
+          "p": 20,
+          "mult": 1.5,
+          "win": 60
+        },
+        "metrics": {
+          "totalReturn": 0.17458769304954025,
+          "cagr": 0.050335190242386085,
+          "sharpe": 0.3262379810449303,
+          "mdd": 0.3287924111861211,
+          "calmar": 0.15309109495806641,
+          "trades": 10,
+          "winRate": 0.4,
+          "finalEq": 11745.876930495402
+        }
+      }
+    ]
+  },
+  "ZEC": {
+    "source": "htx",
+    "candles": 1205,
+    "span": {
+      "from": 1671552000000,
+      "to": 1775577600000
+    },
+    "metrics": {
+      "annualVol": 1.053334520177416,
+      "trendR2": 0.43199481564471154,
+      "hurst": 0.6090359096936799,
+      "buyHoldReturn": 6.462823529411765,
+      "buyHoldMdd": 0.7200586861147513
+    },
+    "ranked": [
+      {
+        "strategy": "bb",
+        "label": "Bollinger Squeeze",
+        "params": {
+          "p": 30,
+          "mult": 1.5,
+          "win": 180
+        },
+        "metrics": {
+          "totalReturn": 15.079381914731389,
+          "cagr": 1.3194472076281096,
+          "sharpe": 1.4750492587064092,
+          "mdd": 0.32346461849900277,
+          "calmar": 4.079108292433466,
+          "trades": 6,
+          "winRate": 0.5,
+          "finalEq": 160793.8191473139
+        }
+      },
+      {
+        "strategy": "donchian",
+        "label": "Donchian Breakout",
+        "params": {
+          "entryWin": 10,
+          "exitWin": 5
+        },
+        "metrics": {
+          "totalReturn": 10.9582278357251,
+          "cagr": 1.1204605628079896,
+          "sharpe": 1.2976208675409082,
+          "mdd": 0.4608755265644071,
+          "calmar": 2.4311565666340624,
+          "trades": 23,
+          "winRate": 0.5217391304347826,
+          "finalEq": 119582.27835725101
+        }
+      },
+      {
+        "strategy": "ma",
+        "label": "MA Cross",
+        "params": {
+          "fast": 10,
+          "slow": 100
+        },
+        "metrics": {
+          "totalReturn": 5.50351667395269,
+          "cagr": 0.7632192508328048,
+          "sharpe": 1.04306331473225,
+          "mdd": 0.5291151501338955,
+          "calmar": 1.4424445239182206,
+          "trades": 9,
+          "winRate": 0.2222222222222222,
+          "finalEq": 65035.1667395269
+        }
+      },
+      {
+        "strategy": "momvol",
+        "label": "Momentum + Volume",
+        "params": {
+          "win": 10,
+          "volMult": 1.5,
+          "sl": 0.02,
+          "tp": 0.1
+        },
+        "metrics": {
+          "totalReturn": 0.9910076976072422,
+          "cagr": 0.2319428414914244,
+          "sharpe": 0.9358521687727228,
+          "mdd": 0.182993255742704,
+          "calmar": 1.267493933314928,
+          "trades": 17,
+          "winRate": 0.47058823529411764,
+          "finalEq": 19910.07697607242
+        }
+      },
+      {
+        "strategy": "zscore",
+        "label": "Z-Score Reversion",
+        "params": {
+          "p": 30,
+          "entryZ": 2,
+          "exitZ": 0.3
+        },
+        "metrics": {
+          "totalReturn": 1.0606228998025165,
+          "cagr": 0.24483441222861124,
+          "sharpe": 0.7262032492867665,
+          "mdd": 0.3477105591472365,
+          "calmar": 0.7041328075542774,
+          "trades": 17,
+          "winRate": 0.6470588235294118,
+          "finalEq": 20606.228998025166
+        }
+      },
+      {
+        "strategy": "rsi",
+        "label": "RSI Reversal",
+        "params": {
+          "p": 9,
+          "lo": 30,
+          "hi": 75,
+          "tp": 200
+        },
+        "metrics": {
+          "totalReturn": -0.11224152233681683,
+          "cagr": -0.035419967453463985,
+          "sharpe": 0.24626506390196254,
+          "mdd": 0.635021449662934,
+          "calmar": -0.055777592193562466,
+          "trades": 5,
+          "winRate": 0.4,
+          "finalEq": 8877.584776631831
+        }
+      }
+    ]
+  },
+  "LTC": {
+    "source": "htx",
+    "candles": 2000,
+    "span": {
+      "from": 1602864000000,
+      "to": 1775577600000
+    },
+    "metrics": {
+      "annualVol": 0.8830428014181402,
+      "trendR2": 0.18444361406347365,
+      "hurst": 0.5401900044156048,
+      "buyHoldReturn": 0.17407959140242601,
+      "buyHoldMdd": 0.8922328886672486
+    },
+    "ranked": [
+      {
+        "strategy": "momvol",
+        "label": "Momentum + Volume",
+        "params": {
+          "win": 10,
+          "volMult": 3,
+          "sl": 0.04,
+          "tp": 0.05
+        },
+        "metrics": {
+          "totalReturn": 1.1694333808322228,
+          "cagr": 0.1518162546732642,
+          "sharpe": 1.1360382523874268,
+          "mdd": 0.0533252929014472,
+          "calmar": 2.8469839810133335,
+          "trades": 11,
+          "winRate": 0.8181818181818182,
+          "finalEq": 21694.33380832223
+        }
+      },
+      {
+        "strategy": "rsi",
+        "label": "RSI Reversal",
+        "params": {
+          "p": 9,
+          "lo": 35,
+          "hi": 70,
+          "tp": 150
+        },
+        "metrics": {
+          "totalReturn": 1.0048379517453454,
+          "cagr": 0.13534922458235088,
+          "sharpe": 0.6123426120570766,
+          "mdd": 0.3769779423720024,
+          "calmar": 0.3590375175022523,
+          "trades": 7,
+          "winRate": 0.8571428571428571,
+          "finalEq": 20048.379517453453
+        }
+      },
+      {
+        "strategy": "zscore",
+        "label": "Z-Score Reversion",
+        "params": {
+          "p": 20,
+          "entryZ": 2.5,
+          "exitZ": 0
+        },
+        "metrics": {
+          "totalReturn": 1.0357393278124718,
+          "cagr": 0.1385229657570506,
+          "sharpe": 0.5732552565568069,
+          "mdd": 0.3330681068444513,
+          "calmar": 0.41589982021828126,
+          "trades": 25,
+          "winRate": 0.76,
+          "finalEq": 20357.393278124717
+        }
+      },
+      {
+        "strategy": "donchian",
+        "label": "Donchian Breakout",
+        "params": {
+          "entryWin": 55,
+          "exitWin": 20
+        },
+        "metrics": {
+          "totalReturn": -0.35287625338935036,
+          "cagr": -0.07635477589148354,
+          "sharpe": 0.14717048447620232,
+          "mdd": 0.8850790086002776,
+          "calmar": -0.0862688812518964,
+          "trades": 12,
+          "winRate": 0.25,
+          "finalEq": 6471.237466106496
+        }
+      },
+      {
+        "strategy": "bb",
+        "label": "Bollinger Squeeze",
+        "params": {
+          "p": 30,
+          "mult": 1.5,
+          "win": 120
+        },
+        "metrics": {
+          "totalReturn": 0.01065389448248144,
+          "cagr": 0.001935922834166881,
+          "sharpe": 0.1105108033989269,
+          "mdd": 0.4428657504980985,
+          "calmar": 0.004371353693505348,
+          "trades": 8,
+          "winRate": 0.5,
+          "finalEq": 10106.538944824815
+        }
+      },
+      {
+        "strategy": "ma",
+        "label": "MA Cross",
+        "params": {
+          "fast": 10,
+          "slow": 50
+        },
+        "metrics": {
+          "totalReturn": -0.49318173411315636,
+          "cagr": -0.11664445976541293,
+          "sharpe": 0.007752577006710399,
+          "mdd": 0.7033961385032151,
+          "calmar": -0.165830395392311,
+          "trades": 26,
+          "winRate": 0.2692307692307692,
+          "finalEq": 5068.182658868436
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+
+▶ paper-trade start · btcusdt 60min 변동성 돌파 (k=0.5) · poll every 300s
+  state file: /Users/richard/Documents/Claude/Projects/auto_coin/data/paper_btcusdt_60min_vb.json
+  resumed: equity=1000000 lastTs=none
+[ERR] 2026-04-06T13:29:28.385Z HTX API error: {"ts":1775482168277,"status":"error","err-code":"invalid-parameter","err-msg":"request limit"}
+[ERR] 2026-04-06T13:59:28.394Z HTX API error: {"ts":1775483968270,"status":"error","err-code":"invalid-parameter","err-msg":"request limit"}
+
+▶ stopped. final state saved to /Users/richard/Documents/Claude/Projects/auto_coin/data/paper_btcusdt_60min_vb.json

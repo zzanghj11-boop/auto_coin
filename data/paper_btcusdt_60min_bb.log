@@ -1,0 +1,9 @@
+
+▶ paper-trade start · btcusdt 60min 볼린저밴드 스퀴즈 · poll every 300s
+  state file: /Users/richard/Documents/Claude/Projects/auto_coin/data/paper_btcusdt_60min_bb.json
+  resumed: equity=1000000 lastTs=none
+[ERR] 2026-04-06T12:59:28.437Z HTX API error: {"ts":1775480368326,"status":"error","err-code":"invalid-parameter","err-msg":"request limit"}
+[ERR] 2026-04-06T13:49:28.444Z HTX API error: {"ts":1775483368312,"status":"error","err-code":"invalid-parameter","err-msg":"request limit"}
+[ERR] 2026-04-06T14:04:28.364Z HTX API error: {"ts":1775484268262,"status":"error","err-code":"invalid-parameter","err-msg":"request limit"}
+
+▶ stopped. final state saved to /Users/richard/Documents/Claude/Projects/auto_coin/data/paper_btcusdt_60min_bb.json
