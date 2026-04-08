@@ -22,6 +22,7 @@ export default function DashNav({ email }: { email: string }) {
         <Link href="/dashboard" className="font-bold whitespace-nowrap text-sm sm:text-base">⚡ Auto-Coin</Link>
         <nav className="flex gap-0.5 sm:gap-1 overflow-x-auto no-scrollbar">
           {item('/dashboard', '대시보드')}
+          {item('/compare', '📊 비교')}
           {item('/bots/new', '새 봇')}
           {item('/bots/new-composite', '🧬 합성봇')}
           {item('/settings/keys', 'API 키')}
