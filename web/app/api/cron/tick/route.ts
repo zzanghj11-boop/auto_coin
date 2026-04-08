@@ -40,8 +40,12 @@ export async function GET(req: Request) {
     try {
       const candles = cache.get(k);
       if (candles?.__error) throw new Error(`HTX fetch 실패: ${candles.__error}`);
-      const strategyKeys: string[] = Array.isArray(bot.strategies) && bot.strategies.length > 0
-        ? bot.strategies as string[]
+      let parsedStrategies: any = bot.strategies;
+      if (typeof parsedStrategies === 'string') {
+        try { parsedStrategies = JSON.parse(parsedStrategies); } catch { parsedStrategies = null; }
+      }
+      const strategyKeys: string[] = Array.isArray(parsedStrategies) && parsedStrategies.length > 0
+        ? parsedStrategies as string[]
         : (bot.strategy ? [bot.strategy] : []);
       const isComposite = strategyKeys.includes('composite');
       const validKeys = strategyKeys.filter(x => STRATEGY_MAP[x]);

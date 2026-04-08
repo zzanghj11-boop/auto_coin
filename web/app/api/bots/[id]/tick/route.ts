@@ -13,9 +13,13 @@ export async function POST(_req: Request, { params }: { params: Promise<{ id: st
   if (be || !bot) return NextResponse.json({ error: 'bot not found' }, { status: 404 });
   if (bot.user_id !== user.id) return NextResponse.json({ error: 'forbidden' }, { status: 403 });
 
-  // strategies 배열 우선, 없으면 legacy strategy 단일값 fallback
-  const strategyKeys: string[] = Array.isArray(bot.strategies) && bot.strategies.length > 0
-    ? bot.strategies as string[]
+  // strategies 배열 우선 (text 컬럼에 JSON 문자열로 저장된 경우 파싱), 없으면 legacy strategy 단일값 fallback
+  let parsedStrategies: any = bot.strategies;
+  if (typeof parsedStrategies === 'string') {
+    try { parsedStrategies = JSON.parse(parsedStrategies); } catch { parsedStrategies = null; }
+  }
+  const strategyKeys: string[] = Array.isArray(parsedStrategies) && parsedStrategies.length > 0
+    ? parsedStrategies as string[]
     : (bot.strategy ? [bot.strategy] : []);
   const isComposite = strategyKeys.includes('composite');
   const validKeys = strategyKeys.filter(k => STRATEGY_MAP[k]);
