@@ -4,7 +4,7 @@
 
 import { NextResponse } from 'next/server';
 import { createClient as createAdmin } from '@supabase/supabase-js';
-import { fetchHtxKlines, runStepEnsemble, type BotState } from '@/lib/trading/runner';
+import { fetchHtxKlines, runStepEnsemble, runStepComposite, type BotState } from '@/lib/trading/runner';
 import { STRATEGY_MAP } from '@/lib/trading/strategies';
 
 export const dynamic = 'force-dynamic';
@@ -37,15 +37,18 @@ export async function GET(req: Request) {
       const strategyKeys: string[] = Array.isArray(bot.strategies) && bot.strategies.length > 0
         ? bot.strategies as string[]
         : (bot.strategy ? [bot.strategy] : []);
+      const isComposite = strategyKeys.includes('composite');
       const validKeys = strategyKeys.filter(x => STRATEGY_MAP[x]);
-      if (validKeys.length === 0) { results.push({ id: bot.id, error: 'no valid strategy' }); continue; }
+      if (!isComposite && validKeys.length === 0) { results.push({ id: bot.id, error: 'no valid strategy' }); continue; }
 
       const { data: stateRow } = await admin.from('bot_state').select('*').eq('bot_id', bot.id).maybeSingle();
       const state: BotState = stateRow
         ? { cash: Number(stateRow.cash), coin: Number(stateRow.coin), entry_price: Number(stateRow.entry_price), last_ts: Number(stateRow.last_ts), entry_strategy: stateRow.entry_strategy ?? null }
         : { cash: Number(bot.initial_cash), coin: 0, entry_price: 0, last_ts: 0, entry_strategy: null };
 
-      const result = runStepEnsemble(state, candles, validKeys);
+      const result = isComposite
+        ? runStepComposite(state, candles, bot.symbol)
+        : runStepEnsemble(state, candles, validKeys);
       const prevTs = stateRow?.last_ts ?? 0;
 
       await admin.from('bot_state').upsert({
