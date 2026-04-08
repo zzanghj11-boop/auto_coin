@@ -25,21 +25,27 @@ export async function GET(req: Request) {
   const { data: bots } = await admin.from('bots').select('*').eq('enabled', true);
   if (!bots || bots.length === 0) return NextResponse.json({ ok: true, processed: 0 });
 
-  // 심볼/주기별로 kline 캐시
-  const cache = new Map<string, any>();
-  const results: any[] = [];
+  // 심볼/주기별로 kline을 미리 병렬 prefetch (HTX fetch는 한 번만)
+  const klineKeys = Array.from(new Set(bots.map(b => `${b.symbol}|${b.period}`)));
+  const klineEntries = await Promise.all(klineKeys.map(async k => {
+    const [symbol, period] = k.split('|');
+    try { return [k, await fetchHtxKlines(symbol, period, 300)] as const; }
+    catch (e: any) { return [k, { __error: e?.message ?? 'fetch failed' }] as const; }
+  }));
+  const cache = new Map<string, any>(klineEntries);
 
-  for (const bot of bots) {
+  // 모든 봇을 병렬 처리
+  const results = await Promise.all(bots.map(async (bot) => {
     const k = `${bot.symbol}|${bot.period}`;
     try {
-      if (!cache.has(k)) cache.set(k, await fetchHtxKlines(bot.symbol, bot.period, 300));
       const candles = cache.get(k);
+      if (candles?.__error) throw new Error(`HTX fetch 실패: ${candles.__error}`);
       const strategyKeys: string[] = Array.isArray(bot.strategies) && bot.strategies.length > 0
         ? bot.strategies as string[]
         : (bot.strategy ? [bot.strategy] : []);
       const isComposite = strategyKeys.includes('composite');
       const validKeys = strategyKeys.filter(x => STRATEGY_MAP[x]);
-      if (!isComposite && validKeys.length === 0) { results.push({ id: bot.id, error: 'no valid strategy' }); continue; }
+      if (!isComposite && validKeys.length === 0) { return { id: bot.id, error: 'no valid strategy' }; }
 
       const { data: stateRow } = await admin.from('bot_state').select('*').eq('bot_id', bot.id).maybeSingle();
       const state: BotState = stateRow
@@ -72,12 +78,12 @@ export async function GET(req: Request) {
         });
       }
       await admin.from('bot_runs').insert({ bot_id: bot.id, ok: true, message: result.trade ? `${result.trade.side}` : 'noop' });
-      results.push({ id: bot.id, ok: true, traded: !!result.trade });
+      return { id: bot.id, ok: true, traded: !!result.trade };
     } catch (e: any) {
       await admin.from('bot_runs').insert({ bot_id: bot.id, ok: false, message: e.message });
-      results.push({ id: bot.id, error: e.message });
+      return { id: bot.id, error: e.message };
     }
-  }
+  }));
 
   return NextResponse.json({ ok: true, processed: bots.length, results });
 }
