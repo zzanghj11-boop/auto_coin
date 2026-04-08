@@ -298,7 +298,7 @@ export const COMPOSITE_PRESETS_BY_PERIOD: Record<string, Record<string, Composit
           "train_recall": 0.225,
           "train_f1": 0.255,
           "train_fires": 34,
-          "test_precision": 0.083,
+          "test_precision": 0.077,
           "test_recall": 0.25
         },
         "bb": {
@@ -476,15 +476,15 @@ export const COMPOSITE_PRESETS_BY_PERIOD: Record<string, Record<string, Composit
           "winRate": 0.4
         },
         "test": {
-          "sharpe": 0.925,
-          "cagr": 0.3596,
+          "sharpe": 0.927,
+          "cagr": 0.3612,
           "mdd": 0.3841,
           "trades": 17,
           "winRate": 0.412
         },
         "full": {
-          "sharpe": 1.137,
-          "cagr": 0.6614,
+          "sharpe": 1.138,
+          "cagr": 0.6617,
           "mdd": 0.6677,
           "trades": 102,
           "winRate": 0.402
@@ -827,15 +827,15 @@ export const COMPOSITE_PRESETS_BY_PERIOD: Record<string, Record<string, Composit
           "winRate": 0.556
         },
         "test": {
-          "sharpe": 0.856,
-          "cagr": 0.0845,
+          "sharpe": 0.876,
+          "cagr": 0.0878,
           "mdd": 0.0478,
           "trades": 1,
           "winRate": 1
         },
         "full": {
-          "sharpe": 0.751,
-          "cagr": 0.1891,
+          "sharpe": 0.753,
+          "cagr": 0.1898,
           "mdd": 0.2584,
           "trades": 28,
           "winRate": 0.536
@@ -944,8 +944,8 @@ export const COMPOSITE_PRESETS_BY_PERIOD: Record<string, Record<string, Composit
           "winRate": 0.483
         },
         "test": {
-          "sharpe": 0.574,
-          "cagr": 0.1702,
+          "sharpe": 0.573,
+          "cagr": 0.1698,
           "mdd": 0.4079,
           "trades": 15,
           "winRate": 0.267
@@ -967,8 +967,8 @@ export const COMPOSITE_PRESETS_BY_PERIOD: Record<string, Record<string, Composit
       "period": "4hour",
       "candles": 2000,
       "span": {
-        "from": 1746820800000,
-        "to": 1775606400000
+        "from": 1746849600000,
+        "to": 1775635200000
       },
       "swings": {
         "lows": 1,
@@ -1040,7 +1040,7 @@ export const COMPOSITE_PRESETS_BY_PERIOD: Record<string, Record<string, Composit
           "train_precision": 0.019,
           "train_recall": 1,
           "train_f1": 0.037,
-          "train_fires": 106,
+          "train_fires": 107,
           "test_precision": 0,
           "test_recall": 0
         },
@@ -1055,16 +1055,16 @@ export const COMPOSITE_PRESETS_BY_PERIOD: Record<string, Record<string, Composit
       },
       "backtest": {
         "train": {
-          "sharpe": -1.091,
-          "cagr": -0.3116,
+          "sharpe": -1.363,
+          "cagr": -0.3714,
           "mdd": 0.3217,
           "trades": 18,
           "winRate": 0.389
         },
         "test": {
-          "sharpe": -1.68,
-          "cagr": -0.5439,
-          "mdd": 0.1671,
+          "sharpe": -2.67,
+          "cagr": -0.7043,
+          "mdd": 0.2089,
           "trades": 5,
           "winRate": 0.4
         },
@@ -1083,8 +1083,8 @@ export const COMPOSITE_PRESETS_BY_PERIOD: Record<string, Record<string, Composit
       "period": "4hour",
       "candles": 2000,
       "span": {
-        "from": 1746820800000,
-        "to": 1775606400000
+        "from": 1746849600000,
+        "to": 1775635200000
       },
       "swings": {
         "lows": 6,
@@ -1153,11 +1153,11 @@ export const COMPOSITE_PRESETS_BY_PERIOD: Record<string, Record<string, Composit
           "test_recall": 0
         },
         "zscore": {
-          "train_precision": 0.121,
+          "train_precision": 0.12,
           "train_recall": 0.8,
-          "train_f1": 0.211,
-          "train_fires": 99,
-          "test_precision": 0.083,
+          "train_f1": 0.209,
+          "train_fires": 100,
+          "test_precision": 0.087,
           "test_recall": 1
         },
         "momvol": {
@@ -1171,22 +1171,22 @@ export const COMPOSITE_PRESETS_BY_PERIOD: Record<string, Record<string, Composit
       },
       "backtest": {
         "train": {
-          "sharpe": -0.327,
-          "cagr": -0.2776,
-          "mdd": 0.4361,
+          "sharpe": -0.575,
+          "cagr": -0.3735,
+          "mdd": 0.4918,
           "trades": 27,
           "winRate": 0.37
         },
         "test": {
-          "sharpe": -0.515,
-          "cagr": -0.3333,
-          "mdd": 0.2033,
+          "sharpe": -0.964,
+          "cagr": -0.4732,
+          "mdd": 0.2183,
           "trades": 7,
           "winRate": 0.429
         },
         "full": {
-          "sharpe": -0.661,
-          "cagr": -0.3979,
+          "sharpe": -0.651,
+          "cagr": -0.3948,
           "mdd": 0.6031,
           "trades": 34,
           "winRate": 0.382
@@ -1199,8 +1199,8 @@ export const COMPOSITE_PRESETS_BY_PERIOD: Record<string, Record<string, Composit
       "period": "4hour",
       "candles": 2000,
       "span": {
-        "from": 1746820800000,
-        "to": 1775606400000
+        "from": 1746849600000,
+        "to": 1775635200000
       },
       "swings": {
         "lows": 5,
@@ -1265,15 +1265,15 @@ export const COMPOSITE_PRESETS_BY_PERIOD: Record<string, Record<string, Composit
           "train_recall": 0,
           "train_f1": 0,
           "train_fires": 137,
-          "test_precision": 0.036,
+          "test_precision": 0.033,
           "test_recall": 0.5
         },
         "zscore": {
-          "train_precision": 0.076,
+          "train_precision": 0.074,
           "train_recall": 1,
-          "train_f1": 0.141,
-          "train_fires": 119,
-          "test_precision": 0.172,
+          "train_f1": 0.138,
+          "train_fires": 121,
+          "test_precision": 0.185,
           "test_recall": 0.5
         },
         "momvol": {
@@ -1287,22 +1287,22 @@ export const COMPOSITE_PRESETS_BY_PERIOD: Record<string, Record<string, Composit
       },
       "backtest": {
         "train": {
-          "sharpe": -0.679,
-          "cagr": -0.4057,
-          "mdd": 0.3446,
+          "sharpe": -0.855,
+          "cagr": -0.4628,
+          "mdd": 0.387,
           "trades": 28,
           "winRate": 0.357
         },
         "test": {
-          "sharpe": -0.108,
-          "cagr": -0.248,
-          "mdd": 0.1892,
+          "sharpe": -0.393,
+          "cagr": -0.3736,
+          "mdd": 0.2197,
           "trades": 8,
           "winRate": 0.5
         },
         "full": {
-          "sharpe": -0.775,
-          "cagr": -0.4538,
+          "sharpe": -0.75,
+          "cagr": -0.446,
           "mdd": 0.5163,
           "trades": 36,
           "winRate": 0.389
@@ -1315,8 +1315,8 @@ export const COMPOSITE_PRESETS_BY_PERIOD: Record<string, Record<string, Composit
       "period": "4hour",
       "candles": 2000,
       "span": {
-        "from": 1746820800000,
-        "to": 1775606400000
+        "from": 1746849600000,
+        "to": 1775635200000
       },
       "swings": {
         "lows": 6,
@@ -1385,11 +1385,11 @@ export const COMPOSITE_PRESETS_BY_PERIOD: Record<string, Record<string, Composit
           "test_recall": 0
         },
         "zscore": {
-          "train_precision": 0.053,
+          "train_precision": 0.052,
           "train_recall": 0.6,
-          "train_f1": 0.097,
-          "train_fires": 95,
-          "test_precision": 0.148,
+          "train_f1": 0.095,
+          "train_fires": 97,
+          "test_precision": 0.16,
           "test_recall": 1
         },
         "momvol": {
@@ -1403,18 +1403,18 @@ export const COMPOSITE_PRESETS_BY_PERIOD: Record<string, Record<string, Composit
       },
       "backtest": {
         "train": {
-          "sharpe": -0.703,
-          "cagr": -0.4399,
-          "mdd": 0.4271,
+          "sharpe": -0.988,
+          "cagr": -0.5327,
+          "mdd": 0.4973,
           "trades": 31,
-          "winRate": 0.419
+          "winRate": 0.387
         },
         "test": {
-          "sharpe": -2.749,
-          "cagr": -0.8713,
-          "mdd": 0.3615,
-          "trades": 11,
-          "winRate": 0.364
+          "sharpe": -2.267,
+          "cagr": -0.8137,
+          "mdd": 0.3168,
+          "trades": 10,
+          "winRate": 0.4
         },
         "full": {
           "sharpe": -1.263,
@@ -1431,12 +1431,12 @@ export const COMPOSITE_PRESETS_BY_PERIOD: Record<string, Record<string, Composit
       "period": "4hour",
       "candles": 2000,
       "span": {
-        "from": 1746820800000,
-        "to": 1775606400000
+        "from": 1746849600000,
+        "to": 1775635200000
       },
       "swings": {
         "lows": 7,
-        "highs": 8
+        "highs": 7
       },
       "weights": {
         "zscore": 1
@@ -1448,7 +1448,7 @@ export const COMPOSITE_PRESETS_BY_PERIOD: Record<string, Record<string, Composit
           "train_precision": 0,
           "train_recall": 0,
           "train_f1": 0,
-          "train_fires": 12,
+          "train_fires": 13,
           "test_precision": 0,
           "test_recall": 0
         },
@@ -1501,11 +1501,11 @@ export const COMPOSITE_PRESETS_BY_PERIOD: Record<string, Record<string, Composit
           "test_recall": 0
         },
         "zscore": {
-          "train_precision": 0.087,
+          "train_precision": 0.085,
           "train_recall": 0.667,
-          "train_f1": 0.154,
-          "train_fires": 115,
-          "test_precision": 0.19,
+          "train_f1": 0.152,
+          "train_fires": 117,
+          "test_precision": 0.211,
           "test_recall": 1
         },
         "momvol": {
@@ -1519,15 +1519,15 @@ export const COMPOSITE_PRESETS_BY_PERIOD: Record<string, Record<string, Composit
       },
       "backtest": {
         "train": {
-          "sharpe": -0.718,
-          "cagr": -0.5167,
-          "mdd": 0.5816,
-          "trades": 33,
-          "winRate": 0.394
+          "sharpe": -0.811,
+          "cagr": -0.5477,
+          "mdd": 0.6,
+          "trades": 34,
+          "winRate": 0.382
         },
         "test": {
-          "sharpe": -0.517,
-          "cagr": -0.3219,
+          "sharpe": -0.275,
+          "cagr": -0.2259,
           "mdd": 0.2018,
           "trades": 6,
           "winRate": 0.333
@@ -1547,8 +1547,8 @@ export const COMPOSITE_PRESETS_BY_PERIOD: Record<string, Record<string, Composit
       "period": "4hour",
       "candles": 2000,
       "span": {
-        "from": 1746820800000,
-        "to": 1775606400000
+        "from": 1746849600000,
+        "to": 1775635200000
       },
       "swings": {
         "lows": 9,
@@ -1636,8 +1636,8 @@ export const COMPOSITE_PRESETS_BY_PERIOD: Record<string, Record<string, Composit
       },
       "backtest": {
         "train": {
-          "sharpe": 0.955,
-          "cagr": 0.5037,
+          "sharpe": 0.817,
+          "cagr": 0.3775,
           "mdd": 0.3839,
           "trades": 30,
           "winRate": 0.333
@@ -1664,8 +1664,8 @@ export const COMPOSITE_PRESETS_BY_PERIOD: Record<string, Record<string, Composit
       "period": "4hour",
       "candles": 2000,
       "span": {
-        "from": 1746820800000,
-        "to": 1775606400000
+        "from": 1746849600000,
+        "to": 1775635200000
       },
       "swings": {
         "lows": 5,
@@ -1734,10 +1734,10 @@ export const COMPOSITE_PRESETS_BY_PERIOD: Record<string, Record<string, Composit
           "test_recall": 0
         },
         "zscore": {
-          "train_precision": 0.038,
+          "train_precision": 0.037,
           "train_recall": 0.6,
-          "train_f1": 0.071,
-          "train_fires": 106,
+          "train_f1": 0.07,
+          "train_fires": 108,
           "test_precision": 0,
           "test_recall": 0
         },
@@ -1752,22 +1752,22 @@ export const COMPOSITE_PRESETS_BY_PERIOD: Record<string, Record<string, Composit
       },
       "backtest": {
         "train": {
-          "sharpe": -0.44,
-          "cagr": -0.3553,
-          "mdd": 0.3707,
-          "trades": 23,
-          "winRate": 0.348
+          "sharpe": -0.521,
+          "cagr": -0.3863,
+          "mdd": 0.375,
+          "trades": 24,
+          "winRate": 0.333
         },
         "test": {
-          "sharpe": 0.319,
-          "cagr": 0.029,
-          "mdd": 0.1343,
-          "trades": 7,
-          "winRate": 0.429
+          "sharpe": 0.12,
+          "cagr": -0.0686,
+          "mdd": 0.1591,
+          "trades": 6,
+          "winRate": 0.5
         },
         "full": {
-          "sharpe": -0.307,
-          "cagr": -0.2921,
+          "sharpe": -0.308,
+          "cagr": -0.2924,
           "mdd": 0.4317,
           "trades": 30,
           "winRate": 0.367
@@ -1782,8 +1782,8 @@ export const COMPOSITE_PRESETS_BY_PERIOD: Record<string, Record<string, Composit
       "period": "60min",
       "candles": 2000,
       "span": {
-        "from": 1768413600000,
-        "to": 1775610000000
+        "from": 1768449600000,
+        "to": 1775646000000
       },
       "swings": {
         "lows": 3,
@@ -1815,7 +1815,7 @@ export const COMPOSITE_PRESETS_BY_PERIOD: Record<string, Record<string, Composit
           "train_precision": 0,
           "train_recall": 0,
           "train_f1": 0,
-          "train_fires": 30,
+          "train_fires": 29,
           "test_precision": 0,
           "test_recall": 0
         },
@@ -1852,10 +1852,10 @@ export const COMPOSITE_PRESETS_BY_PERIOD: Record<string, Record<string, Composit
           "test_recall": 0
         },
         "zscore": {
-          "train_precision": 0.055,
+          "train_precision": 0.056,
           "train_recall": 0.667,
-          "train_f1": 0.102,
-          "train_fires": 127,
+          "train_f1": 0.104,
+          "train_fires": 124,
           "test_precision": 0,
           "test_recall": 0
         },
@@ -1870,23 +1870,23 @@ export const COMPOSITE_PRESETS_BY_PERIOD: Record<string, Record<string, Composit
       },
       "backtest": {
         "train": {
-          "sharpe": -4.643,
-          "cagr": -0.9406,
-          "mdd": 0.4117,
+          "sharpe": -4.585,
+          "cagr": -0.9384,
+          "mdd": 0.4165,
           "trades": 22,
           "winRate": 0.364
         },
         "test": {
-          "sharpe": 0.843,
-          "cagr": 0.2879,
+          "sharpe": 1.58,
+          "cagr": 0.7234,
           "mdd": 0.118,
           "trades": 6,
           "winRate": 0.5
         },
         "full": {
-          "sharpe": -3.799,
-          "cagr": -0.8897,
-          "mdd": 0.4496,
+          "sharpe": -3.647,
+          "cagr": -0.8801,
+          "mdd": 0.4511,
           "trades": 28,
           "winRate": 0.393
         }
