@@ -44,6 +44,28 @@ export function rsi(values: number[], period = 14): number[] {
   return out;
 }
 
+// ATR (Average True Range) — 변동성 측정
+export function atr(candles: { high: number; low: number; close: number }[], period = 14): number[] {
+  const out = new Array(candles.length).fill(NaN);
+  if (candles.length < 2) return out;
+  const tr: number[] = [candles[0].high - candles[0].low];
+  for (let i = 1; i < candles.length; i++) {
+    const c = candles[i];
+    const pc = candles[i - 1].close;
+    tr.push(Math.max(c.high - c.low, Math.abs(c.high - pc), Math.abs(c.low - pc)));
+  }
+  // RMA (Wilder's smoothing)
+  let sum = 0;
+  for (let i = 0; i < period && i < tr.length; i++) sum += tr[i];
+  if (tr.length >= period) {
+    out[period - 1] = sum / period;
+    for (let i = period; i < tr.length; i++) {
+      out[i] = (out[i - 1] * (period - 1) + tr[i]) / period;
+    }
+  }
+  return out;
+}
+
 export function bollinger(values: number[], period = 20, mult = 2) {
   const mid = sma(values, period);
   const upper = new Array(values.length).fill(NaN);

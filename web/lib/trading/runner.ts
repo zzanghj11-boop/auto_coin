@@ -186,10 +186,15 @@ export function runStepEnsemble(
   return { state: next, trade, equity, price: px };
 }
 
-// ─── 합성 전략 실행: 코인별 가중치 투표 + 트레일링 청산 ───────
-// 진입: weighted vote ≥ threshold
-// 청산: 진입 후 고점에서 -10% 하락 또는 60봉 경과
+// ─── 합성 전략 실행 v2: ATR 동적 손절 + EMA 트렌드 필터 + ATR 트레일링 ───────
+// v1 문제: 고정 -3% 손절이 1일봉 노이즈에 잘림, 하락장 필터 없음
+// v2 개선:
+//   1) ATR(14) 기반 동적 손절: -2×ATR (최소 -2%, 최대 -8%)
+//   2) EMA(50) 트렌드 필터: 가격 > EMA50 일 때만 진입 허용
+//   3) 트레일링 스톱: 고점에서 -1.5×ATR (기존 고정 -10% 대체)
+//   4) 시간 청산: 60봉 → 30봉 (과도한 체류 방지)
 import { compositeEntrySignal, getCompositePreset } from './composite';
+import { ema as calcEma, atr as calcAtr } from './indicators';
 
 export function runStepComposite(
   state: BotState,
@@ -213,7 +218,12 @@ export function runStepComposite(
     return { state: next, trade, equity: next.cash + next.coin * px, price: px };
   }
 
-  // 진입후 트레일링 스톱용 peak 추적 (state에 저장 안 되므로 candles에서 entry_price 이후 max로 근사)
+  // ── 사전계산: ATR(14), EMA(50) ──
+  const closes = candles.map(c => c.close);
+  const atrArr = calcAtr(candles, 14);
+  const ema50 = calcEma(closes, 50);
+
+  // 진입후 트레일링 스톱용 peak 추적
   let peakSinceEntry = next.coin > 0 ? Math.max(next.entry_price, px) : 0;
   let entryBarIdx = -1;
 
@@ -229,14 +239,19 @@ export function runStepComposite(
       continue;
     }
     const cpx = c.close;
+    const curAtr = !isNaN(atrArr[i]) ? atrArr[i] : 0;
 
-    // 자본 보호 손절
+    // ── ATR 동적 손절 (자본 보호) ──
+    // 기존: 고정 -3% → 변경: -2×ATR/price, 최소 -2% 최대 -8%
     if (next.coin > 0) {
       const ret = (cpx - next.entry_price) / next.entry_price;
-      if (ret <= STOP) {
+      const atrStop = curAtr > 0
+        ? -Math.min(Math.max((2 * curAtr) / next.entry_price, 0.02), 0.08)
+        : STOP;
+      if (ret <= atrStop) {
         const size = next.coin;
         const proceeds = size * cpx * (1 - FEE - SLIP);
-        trade = { ts: c.ts, side: 'sell', price: cpx, size, fee: FEE + SLIP, reason: 'stop', ret, trigger_strategy: 'composite' };
+        trade = { ts: c.ts, side: 'sell', price: cpx, size, fee: FEE + SLIP, reason: 'stop', ret, trigger_strategy: 'composite:atr_stop' };
         next.cash += proceeds; next.coin = 0; next.entry_price = 0; next.entry_strategy = null;
         peakSinceEntry = 0; entryBarIdx = -1;
         next.last_ts = c.ts;
@@ -245,20 +260,29 @@ export function runStepComposite(
     }
 
     if (next.coin === 0) {
-      const slice = candles.slice(0, i + 1);
-      const sig = compositeEntrySignal(slice, preset);
-      if (sig.fire) {
-        const buyPx = cpx * (1 + SLIP);
-        const size = (next.cash * (1 - FEE)) / buyPx;
-        trade = { ts: c.ts, side: 'buy', price: buyPx, size, fee: FEE + SLIP, reason: 'signal', ret: null, trigger_strategy: `composite:${sig.contributors.join('+')}` };
-        next.coin = size; next.entry_price = buyPx; next.cash = 0; next.entry_strategy = 'composite';
-        peakSinceEntry = buyPx; entryBarIdx = i;
+      // ── EMA(50) 트렌드 필터: 하락장 진입 차단 ──
+      const ema50v = ema50[i];
+      const trendOk = isNaN(ema50v) || cpx > ema50v;
+
+      if (trendOk) {
+        const slice = candles.slice(0, i + 1);
+        const sig = compositeEntrySignal(slice, preset);
+        if (sig.fire) {
+          const buyPx = cpx * (1 + SLIP);
+          const size = (next.cash * (1 - FEE)) / buyPx;
+          trade = { ts: c.ts, side: 'buy', price: buyPx, size, fee: FEE + SLIP, reason: 'signal', ret: null, trigger_strategy: `composite:${sig.contributors.join('+')}` };
+          next.coin = size; next.entry_price = buyPx; next.cash = 0; next.entry_strategy = 'composite';
+          peakSinceEntry = buyPx; entryBarIdx = i;
+        }
       }
     } else {
       if (c.high > peakSinceEntry) peakSinceEntry = c.high;
-      // 트레일링 -10% 또는 60봉 시간 청산
-      const timeExit = entryBarIdx >= 0 && (i - entryBarIdx) >= 60;
-      if (cpx < peakSinceEntry * 0.90 || timeExit) {
+      // ── ATR 트레일링 스톱 또는 30봉 시간 청산 ──
+      const trailAtr = curAtr > 0
+        ? peakSinceEntry - 1.5 * curAtr
+        : peakSinceEntry * 0.90;
+      const timeExit = entryBarIdx >= 0 && (i - entryBarIdx) >= 30;
+      if (cpx < trailAtr || timeExit) {
         const size = next.coin;
         const proceeds = size * cpx * (1 - FEE - SLIP);
         const ret = (cpx - next.entry_price) / next.entry_price;
