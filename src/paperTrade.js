@@ -61,7 +61,18 @@ async function fetchRecent(symbol, period, size = 300) {
   return fetchKlines(symbol, period, size);
 }
 
-function step(state, candles, strategyFn, logger) {
+/**
+ * step() — 봉 단위 매매 실행
+ * jarvis 연동 시 riskSizing 객체를 참조하여 포지션 비율 조절
+ *
+ * @param {Object} state - 페이퍼 트레이딩 상태
+ * @param {Array} candles - 캔들 배열
+ * @param {Function} strategyFn - 전략 함수
+ * @param {Function} logger - 로거
+ * @param {Object} riskSizing - jarvis 리스크 사이징 결과 (optional)
+ *   { action: 'ENTER'|'REDUCE'|'SKIP', sizePct: 0~1, reason }
+ */
+function step(state, candles, strategyFn, logger, riskSizing = null) {
   const sigs = strategyFn(candles);
   const last = candles.length - 1;
   const lastCandle = candles[last];
@@ -76,24 +87,50 @@ function step(state, candles, strategyFn, logger) {
       state.trades.push({ ts: lastCandle.ts, side: 'sell', px, reason: 'stop', ret });
       logger(`[STOP] ${new Date(lastCandle.ts).toISOString()} sell @${px} ret=${(ret*100).toFixed(2)}%`);
       state.cash += proceeds; state.coin = 0; state.entry = 0;
+      state._peakPx = 0;
     }
+  }
+
+  // 트레일링 스탑용 최고가 추적
+  if (state.coin > 0) {
+    state._peakPx = Math.max(state._peakPx || state.entry, px);
   }
 
   const sig = sigs[last];
   if (sig === 1 && state.coin === 0) {
+    // ─── jarvis 리스크 필터 적용 ─────────────────────
+    if (riskSizing) {
+      if (riskSizing.action === 'SKIP') {
+        logger(`[SKIP] ${new Date(lastCandle.ts).toISOString()} 매수 시그널 발생했으나 리스크 필터에 의해 SKIP`);
+        logger(`       사유: ${riskSizing.reason}`);
+        state.lastTs = lastCandle.ts;
+        return;
+      }
+    }
+
+    const sizePct = riskSizing ? Math.min(1, riskSizing.sizePct / 1) : 1; // sizePct는 0~1, 여기서는 자본 대비 비율
+    const allocCash = state.cash * sizePct;
     const buyPx = px * (1 + SLIP);
-    state.coin = (state.cash * (1 - FEE)) / buyPx;
+    state.coin = (allocCash * (1 - FEE)) / buyPx;
     state.entry = buyPx;
-    const spent = state.cash;
-    state.cash = 0;
-    state.trades.push({ ts: lastCandle.ts, side: 'buy', px: buyPx, spent });
-    logger(`[BUY ] ${new Date(lastCandle.ts).toISOString()} @${buyPx.toFixed(2)} size=${state.coin.toFixed(6)}`);
+    state._peakPx = buyPx;
+    const spent = allocCash;
+    state.cash -= allocCash;
+    state.trades.push({ ts: lastCandle.ts, side: 'buy', px: buyPx, spent, sizePct });
+
+    if (riskSizing && sizePct < 1) {
+      logger(`[BUY ] ${new Date(lastCandle.ts).toISOString()} @${buyPx.toFixed(2)} size=${state.coin.toFixed(6)} (${(sizePct*100).toFixed(0)}% 포지션)`);
+      logger(`       리스크: ${riskSizing.reason}`);
+    } else {
+      logger(`[BUY ] ${new Date(lastCandle.ts).toISOString()} @${buyPx.toFixed(2)} size=${state.coin.toFixed(6)}`);
+    }
   } else if (sig === -1 && state.coin > 0) {
     const proceeds = state.coin * px * (1 - FEE - SLIP);
     const ret = (px - state.entry) / state.entry;
     state.trades.push({ ts: lastCandle.ts, side: 'sell', px, reason: 'signal', ret });
     logger(`[SELL] ${new Date(lastCandle.ts).toISOString()} @${px} ret=${(ret*100).toFixed(2)}%`);
     state.cash += proceeds; state.coin = 0; state.entry = 0;
+    state._peakPx = 0;
   }
 
   state.lastTs = lastCandle.ts;
@@ -133,49 +170,103 @@ async function main() {
   logger(`  state file: ${sfile}`);
   logger(`  resumed: equity=${(state.cash + state.coin * (state.equityHistory.at(-1)?.price ?? 0)).toFixed(0)} lastTs=${state.lastTs ? new Date(state.lastTs).toISOString() : 'none'}`);
 
-  // ─── jarvis 연동 (텔레그램 알림 + 시장 데이터) ──────────
+  // ─── jarvis 연동 (텔레그램 알림 + Confluence + 리스크 관리) ──
   let jarvis = null;
   try {
     jarvis = require('./jarvis');
-    logger('[jarvis] 모듈 로드 성공 — 텔레그램 알림 + 시장 모니터링 활성');
+    logger('[jarvis] 모듈 로드 성공 — Confluence Score + 리스크 관리 + 텔레그램 활성');
   } catch (e) {
-    logger('[jarvis] 모듈 없음 — 알림 없이 진행');
+    logger('[jarvis] 모듈 없음 — 알림/리스크 관리 없이 진행');
   }
   let _lastMonitorCheck = 0;
+  let _lastSnapshot = null;
+  let _lastConfluence = null;
   const MONITOR_INTERVAL = 300_000; // 5분
 
   const tick = async () => {
     try {
       const candles = await fetchRecent(symbol, period, 300);
       const prevCoin = state.coin;
-      step(state, candles, strat.fn, logger);
+
+      // ─── jarvis: 시장 데이터 + 리스크 사이징 계산 ─────
+      let riskSizing = null;
+      if (jarvis) {
+        try {
+          // 5분마다 시장 데이터 갱신
+          if (Date.now() - _lastMonitorCheck > MONITOR_INTERVAL || !_lastSnapshot) {
+            _lastSnapshot = await jarvis.data.fetchAll();
+            _lastConfluence = jarvis.confluence.calculateFromSnapshot(_lastSnapshot);
+            _lastMonitorCheck = Date.now();
+
+            // 시장 모니터링 (알림)
+            jarvis.monitor.checkAll().catch(e =>
+              console.warn('[jarvis] 모니터 체크 실패:', e.message)
+            );
+          }
+
+          // 리스크 사이징 계산
+          if (_lastSnapshot && _lastConfluence) {
+            riskSizing = jarvis.risk.calculatePosition(state, _lastSnapshot, _lastConfluence);
+          }
+        } catch (e) {
+          console.warn('[jarvis] 리스크 계산 실패:', e.message);
+        }
+
+        // 보유 중 포지션 종료 체크 (트레일링 스탑 등)
+        if (state.coin > 0 && _lastSnapshot) {
+          try {
+            const exitCheck = jarvis.risk.checkPositionExit(state, candles.at(-1).close, _lastSnapshot);
+            if (exitCheck?.shouldExit) {
+              const px = candles.at(-1).close;
+              const proceeds = state.coin * px * (1 - FEE - SLIP);
+              const ret = (px - state.entry) / state.entry;
+              state.trades.push({ ts: Date.now(), side: 'sell', px, reason: exitCheck.reason, ret });
+              logger(`[EXIT] ${new Date().toISOString()} @${px} ret=${(ret*100).toFixed(2)}%`);
+              logger(`       사유: ${exitCheck.reason}`);
+              state.cash += proceeds; state.coin = 0; state.entry = 0;
+              state._peakPx = 0;
+
+              await jarvis.telegram.notifyTrade({
+                action: 'SELL', symbol, price: px,
+                strategy: strat.name,
+                reason: `${exitCheck.reason} | 수익: ${(ret * 100).toFixed(2)}%`,
+              }).catch(() => {});
+
+              saveState(sfile, state);
+              return; // 이 틱에서는 종료만 처리
+            }
+          } catch (e) {
+            console.warn('[jarvis] 포지션 종료 체크 실패:', e.message);
+          }
+        }
+      }
+
+      step(state, candles, strat.fn, logger, riskSizing);
       saveState(sfile, state);
       const px = candles.at(-1).close;
       console.log(`  · ${new Date().toISOString()} px=${px}  ${summary(state, px)}`);
 
-      // ─── jarvis 연동: 매매 발생 시 텔레그램 알림 ───────
+      // ─── jarvis: 매매 발생 시 텔레그램 알림 (Confluence 정보 포함) ───
       if (jarvis) {
-        // 매매 시그널 발생 시 알림
         if (prevCoin === 0 && state.coin > 0) {
+          const scoreInfo = _lastConfluence
+            ? ` | Confluence: ${_lastConfluence.total}/100 (${_lastConfluence.signal})`
+            : '';
+          const riskInfo = riskSizing
+            ? ` | 포지션: ${(riskSizing.sizePct * 100).toFixed(0)}%`
+            : '';
           await jarvis.telegram.notifyTrade({
             action: 'BUY', symbol, price: state.entry,
-            strategy: strat.name, reason: `paper-trade (${period})`,
-          });
+            strategy: strat.name,
+            reason: `paper-trade (${period})${scoreInfo}${riskInfo}`,
+          }).catch(() => {});
         } else if (prevCoin > 0 && state.coin === 0) {
           const lastTrade = state.trades.at(-1);
           await jarvis.telegram.notifyTrade({
             action: 'SELL', symbol, price: px,
             strategy: strat.name,
             reason: `${lastTrade?.reason || 'signal'} | 수익: ${((lastTrade?.ret || 0) * 100).toFixed(2)}%`,
-          });
-        }
-
-        // 5분마다 시장 모니터링 체크
-        if (Date.now() - _lastMonitorCheck > MONITOR_INTERVAL) {
-          _lastMonitorCheck = Date.now();
-          jarvis.monitor.checkAll().catch(e =>
-            console.warn('[jarvis] 모니터 체크 실패:', e.message)
-          );
+          }).catch(() => {});
         }
       }
     } catch (e) {

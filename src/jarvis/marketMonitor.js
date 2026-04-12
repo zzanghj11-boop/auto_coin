@@ -18,6 +18,8 @@
 
 const dataFeed = require('./dataFeed');
 const telegram = require('./telegram');
+const confluence = require('./confluenceScore');
+const riskManager = require('./riskManager');
 const { MARKET_THRESHOLDS, FG_THRESHOLDS } = require('./constants');
 const fs = require('fs');
 const path = require('path');
@@ -109,6 +111,56 @@ function checkFundingExtreme(snapshot) {
   return null;
 }
 
+// ─── Confluence 시그널 체크 ────────────────────────────────────
+
+/**
+ * Confluence Score STRONG/JACKPOT 감지 → 매수 기회 알림
+ */
+function checkConfluenceSignal(snapshot) {
+  try {
+    const result = confluence.calculateFromSnapshot(snapshot);
+    if (result.signal === 'JACKPOT') {
+      return {
+        type: 'confluence_jackpot',
+        level: 'opportunity',
+        title: '🔥🔥🔥 JACKPOT 시그널 감지!',
+        detail: `Confluence Score: ${result.total}/100\n${result.coverage}\n신뢰도: ${result.confidence}\n\n역사적 매수 구간 — 연 3~7회 발생`,
+      };
+    }
+    if (result.signal === 'STRONG') {
+      return {
+        type: 'confluence_strong',
+        level: 'opportunity',
+        title: '🔥 STRONG 매수 시그널',
+        detail: `Confluence Score: ${result.total}/100\n${result.coverage}\n신뢰도: ${result.confidence}`,
+      };
+    }
+  } catch (e) {
+    console.warn('[monitor] Confluence 체크 실패:', e.message);
+  }
+  return null;
+}
+
+/**
+ * 블랙스완 감지 → 긴급 경고
+ */
+function checkBlackSwanAlert(snapshot) {
+  try {
+    const bs = riskManager.checkBlackSwan(snapshot);
+    if (bs.isBlackSwan) {
+      return {
+        type: 'black_swan',
+        level: 'fire',
+        title: '🚨🚨 블랙스완 경보 — 거래 중단',
+        detail: `${bs.count}/5 조건 충족:\n${bs.triggered.join('\n')}\n\n모든 신규 진입 차단됨`,
+      };
+    }
+  } catch (e) {
+    console.warn('[monitor] 블랙스완 체크 실패:', e.message);
+  }
+  return null;
+}
+
 // ─── 기회포착 체크 (🟡) ───────────────────────────────────────
 
 /**
@@ -157,6 +209,8 @@ async function checkAll() {
     checkVixSpike(snapshot),
     checkFundingExtreme(snapshot),
     checkFearGreedOpportunity(snapshot),
+    checkConfluenceSignal(snapshot),
+    checkBlackSwanAlert(snapshot),
   ].filter(Boolean);
 
   // 알림 발송 (중복 방지)
@@ -180,13 +234,33 @@ async function checkAll() {
 
 /**
  * 시장 요약 브리핑 전송 (수동 호출 또는 cron)
+ * Confluence Score + 리스크 분석 포함
  */
 async function sendBriefing() {
-  await dataFeed.fetchAll();
+  const snapshot = await dataFeed.fetchAll();
   const summary = dataFeed.getSummaryText();
   const risk = dataFeed.getRiskScore();
   const riskEmoji = risk >= 70 ? '🔴' : risk >= 50 ? '🟡' : '🟢';
-  const fullText = `${summary}\n\n${riskEmoji} 위험도: ${risk}/100`;
+
+  // Confluence Score 계산
+  let confluenceText = '';
+  try {
+    const score = confluence.calculateFromSnapshot(snapshot);
+    confluenceText = `\n\n${confluence.formatScore(score)}`;
+  } catch (e) {
+    confluenceText = '\n\n(Confluence Score 계산 실패)';
+  }
+
+  // 블랙스완 체크
+  let bsText = '';
+  try {
+    const bs = riskManager.checkBlackSwan(snapshot);
+    if (bs.count > 0) {
+      bsText = `\n\n⚠️ 블랙스완 ${bs.count}/5: ${bs.triggered.join(', ')}`;
+    }
+  } catch { /* ignore */ }
+
+  const fullText = `${summary}\n\n${riskEmoji} 위험도: ${risk}/100${confluenceText}${bsText}`;
   return telegram.notifyMarketSummary(fullText);
 }
 
@@ -197,6 +271,8 @@ module.exports = {
   checkVixSpike,
   checkFundingExtreme,
   checkFearGreedOpportunity,
+  checkConfluenceSignal,
+  checkBlackSwanAlert,
 };
 
 // ─── CLI 직접 실행 ──────────────────────────────────────────

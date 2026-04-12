@@ -24,5 +24,7 @@
 const data = require('./dataFeed');
 const telegram = require('./telegram');
 const monitor = require('./marketMonitor');
+const confluence = require('./confluenceScore');
+const risk = require('./riskManager');
 
-module.exports = { data, telegram, monitor };
+module.exports = { data, telegram, monitor, confluence, risk };
