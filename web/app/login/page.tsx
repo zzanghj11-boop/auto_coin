@@ -58,8 +58,7 @@ export default function LoginPage() {
           </button>
         </form>
 
-        <div className="my-4 text-center text-xs text-muted">또는</div>
-        <button onClick={handleGoogle} className="btn btn-ghost w-full">Google로 계속</button>
+
 
         <p className="mt-5 text-center text-sm text-muted">
           {mode === 'signup' ? '이미 계정이 있나요? ' : '처음이신가요? '}
