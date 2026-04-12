@@ -26,6 +26,7 @@ export default function DashNav({ email }: { email: string }) {
           {item('/bots/new', '새 봇')}
           {item('/bots/new-composite', '🧬 합성봇')}
           {item('/settings/keys', 'API 키')}
+          {item('/docs', '📖 시스템 가이드')}
         </nav>
       </div>
       <div className="flex items-center gap-2 text-sm text-muted shrink-0">
