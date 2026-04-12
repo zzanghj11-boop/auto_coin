@@ -133,13 +133,51 @@ async function main() {
   logger(`  state file: ${sfile}`);
   logger(`  resumed: equity=${(state.cash + state.coin * (state.equityHistory.at(-1)?.price ?? 0)).toFixed(0)} lastTs=${state.lastTs ? new Date(state.lastTs).toISOString() : 'none'}`);
 
+  // ─── jarvis 연동 (텔레그램 알림 + 시장 데이터) ──────────
+  let jarvis = null;
+  try {
+    jarvis = require('./jarvis');
+    logger('[jarvis] 모듈 로드 성공 — 텔레그램 알림 + 시장 모니터링 활성');
+  } catch (e) {
+    logger('[jarvis] 모듈 없음 — 알림 없이 진행');
+  }
+  let _lastMonitorCheck = 0;
+  const MONITOR_INTERVAL = 300_000; // 5분
+
   const tick = async () => {
     try {
       const candles = await fetchRecent(symbol, period, 300);
+      const prevCoin = state.coin;
       step(state, candles, strat.fn, logger);
       saveState(sfile, state);
       const px = candles.at(-1).close;
       console.log(`  · ${new Date().toISOString()} px=${px}  ${summary(state, px)}`);
+
+      // ─── jarvis 연동: 매매 발생 시 텔레그램 알림 ───────
+      if (jarvis) {
+        // 매매 시그널 발생 시 알림
+        if (prevCoin === 0 && state.coin > 0) {
+          await jarvis.telegram.notifyTrade({
+            action: 'BUY', symbol, price: state.entry,
+            strategy: strat.name, reason: `paper-trade (${period})`,
+          });
+        } else if (prevCoin > 0 && state.coin === 0) {
+          const lastTrade = state.trades.at(-1);
+          await jarvis.telegram.notifyTrade({
+            action: 'SELL', symbol, price: px,
+            strategy: strat.name,
+            reason: `${lastTrade?.reason || 'signal'} | 수익: ${((lastTrade?.ret || 0) * 100).toFixed(2)}%`,
+          });
+        }
+
+        // 5분마다 시장 모니터링 체크
+        if (Date.now() - _lastMonitorCheck > MONITOR_INTERVAL) {
+          _lastMonitorCheck = Date.now();
+          jarvis.monitor.checkAll().catch(e =>
+            console.warn('[jarvis] 모니터 체크 실패:', e.message)
+          );
+        }
+      }
     } catch (e) {
       logger(`[ERR] ${new Date().toISOString()} ${e.message}`);
     }

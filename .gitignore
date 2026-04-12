@@ -1,0 +1,9 @@
+node_modules/
+.env
+.env.local
+.DS_Store
+data/jarvis_market_cache.json
+data/jarvis_alert_log.json
+data/paper_*.json
+data/paper_*.log
+jarvis-v2-main/
