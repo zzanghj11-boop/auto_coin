@@ -1,16 +1,6 @@
-/**
- * /api/cron/jarvis — Vercel Cron으로 jarvis 모니터링 자동 실행
- *
- * 1) 시장 스냅샷 수집 (Binance, F&G, Yahoo, CoinGecko)
- * 2) Confluence Score 계산 (11개 지표)
- * 3) 블랙스완 체크
- * 4) 위험/기회 알림 → Telegram 전송
- * 5) action=briefing 파라미터 시 풀 브리핑 전송 (오전 cron용)
- *
- * vercel.json 등록:
- *   { "path": "/api/cron/jarvis",                "schedule": "*/5 * * * *" }  ← 5분마다 모니터링
- *   { "path": "/api/cron/jarvis?action=briefing", "schedule": "0 0 * * *" }   ← 매일 09:00 KST
- */
+// /api/cron/jarvis — Vercel Cron jarvis 모니터링
+// 5분마다: 시장 모니터링 + 위험/기회 Telegram 알림
+// action=briefing: 모닝 브리핑 (매일 09:00 KST)
 
 import { NextResponse } from 'next/server';
 
