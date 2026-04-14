@@ -194,12 +194,14 @@ export function runStepEnsemble(
 //   3) 트레일링 스톱: 고점에서 -1.5×ATR (기존 고정 -10% 대체)
 //   4) 시간 청산: 60봉 → 30봉 (과도한 체류 방지)
 import { compositeEntrySignal, getCompositePreset } from './composite';
+import { getCompositeFor } from './composite_presets';
 import { ema as calcEma, atr as calcAtr } from './indicators';
 
 export function runStepComposite(
   state: BotState,
   candles: Candle[],
-  symbol: string
+  symbol: string,
+  period: string = '1day'
 ): StepResult {
   if (candles.length === 0) return { state, trade: null, equity: state.cash, price: 0 };
   const last = candles[candles.length - 1];
@@ -212,7 +214,8 @@ export function runStepComposite(
   }
   const noNewBars = last.ts <= state.last_ts;
 
-  const preset = getCompositePreset(symbol);
+  // period별 preset 우선 조회, 없으면 1day fallback
+  const preset = getCompositeFor(symbol, period) ?? getCompositePreset(symbol);
   if (!preset) {
     next.last_ts = last.ts;
     return { state: next, trade, equity: next.cash + next.coin * px, price: px };

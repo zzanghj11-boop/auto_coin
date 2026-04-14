@@ -57,7 +57,7 @@ export async function GET(req: Request) {
         : { cash: Number(bot.initial_cash), coin: 0, entry_price: 0, last_ts: 0, entry_strategy: null };
 
       const result = isComposite
-        ? runStepComposite(state, candles, bot.symbol)
+        ? runStepComposite(state, candles, bot.symbol, bot.period)
         : runStepEnsemble(state, candles, validKeys);
       const prevTs = stateRow?.last_ts ?? 0;
 

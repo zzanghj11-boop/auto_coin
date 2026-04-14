@@ -18,14 +18,20 @@ export default function LoginPage() {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setLoading(true); setMsg(null);
-    const fn = mode === 'signup'
-      ? supabase.auth.signUp({ email, password, options: { emailRedirectTo: `${location.origin}/auth/callback` } })
-      : supabase.auth.signInWithPassword({ email, password });
-    const { error } = await fn;
-    setLoading(false);
-    if (error) { setMsg(error.message); return; }
-    if (mode === 'signup') setMsg('확인 이메일을 보냈습니다. 메일함을 확인하세요.');
-    else router.push(search.get('next') || '/dashboard');
+    if (mode === 'signup') {
+      const { error } = await supabase.auth.signUp({ email, password });
+      setLoading(false);
+      if (error) { setMsg(error.message); return; }
+      // 인증 없이 바로 로그인 시도
+      const { error: loginErr } = await supabase.auth.signInWithPassword({ email, password });
+      if (loginErr) { setMsg('가입 완료! 로그인해주세요.'); setMode('signin'); return; }
+      router.push(search.get('next') || '/dashboard');
+    } else {
+      const { error } = await supabase.auth.signInWithPassword({ email, password });
+      setLoading(false);
+      if (error) { setMsg(error.message); return; }
+      router.push(search.get('next') || '/dashboard');
+    }
   }
 
   async function handleGoogle() {
