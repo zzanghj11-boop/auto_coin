@@ -2,6 +2,6 @@
   "crons": [
     { "path": "/api/cron/tick", "schedule": "* * * * *" },
     { "path": "/api/cron/jarvis", "schedule": "*/5 * * * *" },
-    { "path": "/api/cron/jarvis?action=briefing", "schedule": "0 0 * * *" }
+    { "path": "/api/cron/jarvis-briefing", "schedule": "0 0 * * *" }
   ]
 }
