@@ -10,6 +10,19 @@ import { STRATEGY_MAP } from '@/lib/trading/strategies';
 export const dynamic = 'force-dynamic';
 export const maxDuration = 60;
 
+async function sendTelegram(text: string) {
+  const token = process.env.TELEGRAM_BOT_TOKEN;
+  const chatId = process.env.TELEGRAM_CHAT_ID;
+  if (!token || !chatId) return;
+  try {
+    await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ chat_id: chatId, text, parse_mode: 'Markdown' }),
+    });
+  } catch (_) { /* 텔레그램 실패해도 거래 처리 계속 */ }
+}
+
 export async function GET(req: Request) {
   const auth = req.headers.get('authorization');
   if (process.env.CRON_SECRET && auth !== `Bearer ${process.env.CRON_SECRET}`) {
@@ -75,6 +88,15 @@ export async function GET(req: Request) {
           reason: result.trade.reason, ret: result.trade.ret,
           trigger_strategy: result.trade.trigger_strategy ?? null,
         });
+        // 텔레그램 거래 알림
+        const side = result.trade.side === 'buy' ? '🟢 매수' : '🔴 매도';
+        const retStr = result.trade.ret != null ? ` | 수익: ${(result.trade.ret * 100).toFixed(2)}%` : '';
+        const equityStr = result.equity ? ` | 자산: $${Number(result.equity).toFixed(2)}` : '';
+        const msg = `${side} *${bot.name}*\n` +
+          `코인: \`${bot.symbol}\` (${bot.period})\n` +
+          `가격: $${Number(result.trade.price).toFixed(4)}\n` +
+          `전략: ${result.trade.trigger_strategy ?? '-'}${retStr}${equityStr}`;
+        await sendTelegram(msg);
       }
       if (result.state.last_ts > prevTs) {
         await admin.from('equity_history').insert({
