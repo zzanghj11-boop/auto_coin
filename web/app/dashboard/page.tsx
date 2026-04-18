@@ -12,6 +12,7 @@ export default async function Dashboard({ searchParams }: { searchParams: Promis
     .from('bots')
     .select('id,name,symbol,period,strategy,strategies,mode,enabled,initial_cash,exchange_keys(label,dry_run),bot_state(cash,coin,entry_price,equity,last_price,updated_at,entry_strategy)')
     .is('archived_at', null)
+    .eq('enabled', true)
     .order('created_at', { ascending: false });
 
   const allList = (bots ?? []) as unknown as Bot[];
